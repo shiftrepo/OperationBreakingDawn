@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  tasks:
+    - name: user
+      debug:
+        msg: "user={{ item.name }}"
+    - name: groups
+      debug:
+        msg: "group={{ item.group }}"
+# ここまでをループさせたい
+  with_items:
+    - name: user1
+      group: A
+    - name: user2
+      group: B

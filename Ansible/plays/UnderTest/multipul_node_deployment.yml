@@ -1,0 +1,11 @@
+---
+- hosts: internal
+  tasks:
+  - name: multipul node deployment
+    shell: |-
+      packstack --install-hosts=172.16.107.10,172.16.107.20
+#    expect:
+#      command: /usr/bin/mysql_secure_installation
+#      responses:
+#        "Enter current password for root \\(enter for none\\): " : ""
+#        "Set root password\\? \\[Y\\/n\\] " : "Y"

@@ -1,0 +1,13 @@
+# main.yml
+---
+- hosts: internal
+  tasks:
+    - name: count our fruit
+      debug:
+        msg: "{{ item }} with index {{ my_idx }}"
+      loop:
+        - apple
+        - banana
+        - pear
+      loop_control:
+        index_var: my_idx

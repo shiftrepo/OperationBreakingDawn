@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  tasks:
+    - name: yum install repo
+      yum:
+        name: "{{ pre }}"
+        state: latest 
+      with_items:
+          - yum-utils
+          - yum-plugin-priorities
+          - epel-release
+          - centos-release-openstack-rocky
+#          - centos-release-openstack-queens
+      loop_control:
+        loop_var: pre
+    - name: yum install packstack
+      yum:
+        name: "{{ openstack }}"
+        state: latest 
+      with_items:
+          - openstack-packstack
+#          - openstack-heat-*
+#          - python-heatclient
+      loop_control:
+        loop_var: openstack
