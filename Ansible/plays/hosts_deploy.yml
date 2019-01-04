@@ -21,8 +21,7 @@
     shell: |-
       hostnamectl set-hostname {{ host_name }}
 
-  tasks:
-    - name: SELinux permissive
-      selinux:
-        policy: targeted
-        state: permissive
+  - name: SELinux permissive
+    selinux:
+      policy: targeted
+      state: permissive
