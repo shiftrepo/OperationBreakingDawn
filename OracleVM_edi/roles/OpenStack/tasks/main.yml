@@ -1,0 +1,11 @@
+---
+# tasks file for OpenStack
+#https://docs.ansible.com/ansible/authorized_key_module.html
+- name: deploy pub key
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub') }}"
+  register: output
+- debug:
+    msg: "{{ output }}"

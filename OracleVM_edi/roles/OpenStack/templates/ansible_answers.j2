@@ -76,7 +76,7 @@ CONFIG_CLIENT_INSTALL=y
 
 # Comma-separated list of NTP servers. Leave plain if Packstack
 # should not install ntpd on instances.
-CONFIG_NTP_SERVERS=10.0.2.10
+CONFIG_NTP_SERVERS={{ item.ntpnode }}
 
 # Comma-separated list of servers to be excluded from the
 # installation. This is helpful if you are running Packstack a second
@@ -91,14 +91,14 @@ CONFIG_DEBUG_MODE=n
 
 # Server on which to install OpenStack services specific to the
 # controller role (for example, API servers or dashboard).
-CONFIG_CONTROLLER_HOST=172.16.107.10
+CONFIG_CONTROLLER_HOST={{ item.onenode }}
 
 # List the servers on which to install the Compute service.
-CONFIG_COMPUTE_HOSTS=172.16.107.10,172.16.107.20
+CONFIG_COMPUTE_HOSTS={{ item.multinode }}
 
 # List of servers on which to install the network service such as
 # Compute networking (nova network) or OpenStack Networking (neutron).
-CONFIG_NETWORK_HOSTS=172.16.107.10
+CONFIG_NETWORK_HOSTS={{ item.onenode }}
 
 # Specify 'y' if you want to use VMware vCenter as hypervisor and
 # storage; otherwise, specify 'n'. ['y', 'n']
@@ -134,11 +134,11 @@ CONFIG_VCENTER_CLUSTER_NAMES=
 
 # (Unsupported!) Server on which to install OpenStack services
 # specific to storage servers such as Image or Block Storage services.
-CONFIG_STORAGE_HOST=10.0.2.6
+CONFIG_STORAGE_HOST={{ item.onenode }}
 
 # (Unsupported!) Server on which to install OpenStack services
 # specific to OpenStack Data Processing (sahara).
-CONFIG_SAHARA_HOST=10.0.2.6
+CONFIG_SAHARA_HOST={{ item.onenode }}
 
 # Comma-separated list of URLs for any additional yum repositories,
 # to use for installation.
@@ -262,16 +262,16 @@ CONFIG_SSL_CERT_SUBJECT_O=openstack
 CONFIG_SSL_CERT_SUBJECT_OU=packstack
 
 # Enter the ssl certificates subject common name.
-CONFIG_SSL_CERT_SUBJECT_CN=node000.cnt.shift
+CONFIG_SSL_CERT_SUBJECT_CN={{ item.fqdn4ssl }}
 
-CONFIG_SSL_CERT_SUBJECT_MAIL=admin@node000.cnt.shift
+CONFIG_SSL_CERT_SUBJECT_MAIL=admin@{{ item.fqdn4ssl }}
 
 # Service to be used as the AMQP broker. Allowed values are: rabbitmq
 # ['rabbitmq']
 CONFIG_AMQP_BACKEND=rabbitmq
 
 # IP address of the server on which to install the AMQP service.
-CONFIG_AMQP_HOST=172.16.107.10
+CONFIG_AMQP_HOST={{ item.onenode }}
 
 # Specify 'y' to enable SSL for the AMQP service. ['y', 'n']
 CONFIG_AMQP_ENABLE_SSL=n
@@ -293,7 +293,7 @@ CONFIG_AMQP_AUTH_PASSWORD=PW_PLACEHOLDER
 # installation was not specified in CONFIG_MARIADB_INSTALL, specify
 # the IP address of an existing database server (a MariaDB cluster can
 # also be specified).
-CONFIG_MARIADB_HOST=172.16.107.10
+CONFIG_MARIADB_HOST={{ item.onenode }}
 
 # User name for the MariaDB administrative user.
 CONFIG_MARIADB_USER=root
@@ -324,7 +324,7 @@ CONFIG_KEYSTONE_ADMIN_EMAIL=root@localhost
 CONFIG_KEYSTONE_ADMIN_USERNAME=admin
 
 # Password to use for the Identity service 'admin' user.
-CONFIG_KEYSTONE_ADMIN_PW=openstack
+CONFIG_KEYSTONE_ADMIN_PW={{ item.adminpass }}
 
 # Password to use for the Identity service 'demo' user.
 CONFIG_KEYSTONE_DEMO_PW=0458e4411d864f99
@@ -341,7 +341,7 @@ CONFIG_KEYSTONE_TOKEN_FORMAT=FERNET
 CONFIG_KEYSTONE_IDENTITY_BACKEND=sql
 
 # URL for the Identity service LDAP backend.
-CONFIG_KEYSTONE_LDAP_URL=ldap://10.0.2.6
+CONFIG_KEYSTONE_LDAP_URL=ldap://{{ item.onenode }}
 
 # User DN for the Identity service LDAP backend.  Used to bind to the
 # LDAP server if the LDAP server does not allow anonymous
@@ -876,7 +876,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex
 # issuing the following command: packstack --allinone --os-neutron-
 # ovs-bridge-mappings=ext-net:br-ex --os-neutron-ovs-bridge-interfaces
 # =br-ex:eth0
-CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:enp0s3
+CONFIG_NEUTRON_OVS_BRIDGE_IFACES={{ item.networkbidge }}
 
 # Comma-separated list of Open vSwitch bridges that must be created
 # and connected to interfaces in compute nodes when flat or vlan type
@@ -1163,7 +1163,7 @@ CONFIG_SWIFT_STORAGE_SIZE=2G
 
 # Password used by Orchestration service user to authenticate against
 # the database.
-CONFIG_HEAT_DB_PW=05d9277dad604f8e
+CONFIG_HEAT_DB_PW=PW_PLACEHOLDER
 
 # Encryption key to use for authentication in the Orchestration
 # database (16, 24, or 32 chars).
@@ -1171,7 +1171,7 @@ CONFIG_HEAT_AUTH_ENC_KEY=d8b15acdee3b40db
 
 # Password to use for the Orchestration service to authenticate with
 # the Identity service.
-CONFIG_HEAT_KS_PW=cef404c9c3394385
+CONFIG_HEAT_KS_PW=PW_PLACEHOLDER
 
 # Specify 'y' to install the Orchestration CloudFormation API. ['y',
 # 'n']
@@ -1185,7 +1185,7 @@ CONFIG_HEAT_DOMAIN_ADMIN=heat_admin
 
 # Password for the Identity domain administrative user for
 # Orchestration.
-CONFIG_HEAT_DOMAIN_PASSWORD=1e11212ca69d4880
+CONFIG_HEAT_DOMAIN_PASSWORD=PW_PLACEHOLDER
 
 # Specify 'y' to provision for demo usage and testing. ['y', 'n']
 CONFIG_PROVISION_DEMO=n
@@ -1309,7 +1309,7 @@ CONFIG_CEILOMETER_COORDINATION_BACKEND=redis
 CONFIG_ENABLE_CEILOMETER_MIDDLEWARE=n
 
 # IP address of the server on which to install the Redis server.
-CONFIG_REDIS_HOST=172.16.107.10
+CONFIG_REDIS_HOST={{ item.onenode }}
 
 # Port on which the Redis server listens.
 CONFIG_REDIS_PORT=6379

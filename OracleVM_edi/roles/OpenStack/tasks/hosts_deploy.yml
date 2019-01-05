@@ -1,0 +1,27 @@
+---
+- hosts: external
+  tasks:
+#  - name: create directory
+#    file:
+#      path: /root/ansible/tmp
+#      state: directory
+#      owner: root
+#      mode: 0755
+
+  - name: copy file
+    copy:
+      src: /etc/hosts
+      dest: /etc/hosts
+      owner: root
+      mode: 0644
+
+  - debug: msg="vars = {{ ansible_hostname }}/{{ host_name }}"
+
+  - name: change hostname
+    shell: |-
+      hostnamectl set-hostname {{ host_name }}
+
+  - name: SELinux permissive
+    selinux:
+      policy: targeted
+      state: permissive
