@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+  - name: create answer.cfg file
+    template:
+      #FIXME:variable
+      src: /media/sf_git/shift/Ansible/ansible_templates/ansible_answers.j2
+      dest: /media/sf_git/shift/Ansible/ansible_dest/answer.cfg

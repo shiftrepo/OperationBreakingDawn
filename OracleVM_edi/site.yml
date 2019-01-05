@@ -1,0 +1,23 @@
+---
+- name: Common configuration
+  hosts: all
+#  gather_facts: False
+  roles:
+     - common
+
+#- name: gateway setup
+#  hosts: gateway
+#  roles:
+#     - ntp
+#     - dns
+
+- name: masternode setup
+  hosts: masternode
+  roles:
+     - masternode
+
+
+- name: openstack setup
+  hosts: external
+  roles:
+     - OpenStack
