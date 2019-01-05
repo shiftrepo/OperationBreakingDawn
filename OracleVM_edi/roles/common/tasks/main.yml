@@ -1,0 +1,6 @@
+---
+# tasks file for common
+- name: testing env
+  shell: |-
+    uname -n
+    env

@@ -1,0 +1,16 @@
+---
+- name: Common configuration
+  hosts: all
+  roles:
+     - common
+
+#- name: gateway setup
+#  hosts: gateway
+#  roles:
+#     - ntp
+#     - dns
+
+- name: openstack setup
+  hosts: external
+  roles:
+     - OpenStack
