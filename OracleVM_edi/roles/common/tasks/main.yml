@@ -4,3 +4,26 @@
   shell: |-
     uname -n
     env
+- debug:
+    var:
+      hostvars[inventory_hostname]['ansible_host']
+- debug:
+    var:
+      hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+#- debug:
+#    var:
+#      hostvars[inventory_hostname]
+
+- name: Generate /etc/hosts file
+  template:
+    src=templates/hosts.j2
+    dest=/etc/hosts_test
+  register: hostsoutput
+- debug:
+    msg: "{{ hostsoutput }}"
+
+
+# message as task
+#- name: show previous shell stdout
+#  debug:
+#    msg: "{{ output.stdout }}"

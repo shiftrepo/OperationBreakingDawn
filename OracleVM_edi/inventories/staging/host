@@ -4,14 +4,25 @@ all:
       children:
         gateway:
           hosts:
-            10.0.2.10
-        openstack:
-          hosts:
-            10.0.2.6
-            10.0.2.8
+            ntp001.shift:
+              ansible_host: 10.0.2.10
+        nodes:
+          children:
+            masternode:
+              hosts:
+                master000.shift:
+                  ansible_host: 10.0.2.6
+            slavenodes:
+              hosts:
+                node001.shift:
+                  ansible_host: 10.0.2.8
     internal:
       children:
-        openstack:
+        control:
           hosts:
-            172.16.107.10
-            172.16.107.20
+            control000.shift:
+              ansible_host: 172.16.107.10
+        compute:
+          hosts:
+            compute001.shift:
+              ansible_host: 172.16.107.20

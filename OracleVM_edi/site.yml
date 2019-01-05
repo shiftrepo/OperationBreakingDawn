@@ -1,6 +1,7 @@
 ---
 - name: Common configuration
   hosts: all
+#  gather_facts: False
   roles:
      - common
 
@@ -9,6 +10,12 @@
 #  roles:
 #     - ntp
 #     - dns
+
+- name: masternode setup
+  hosts: masternode
+  roles:
+     - masternode
+
 
 - name: openstack setup
   hosts: external
