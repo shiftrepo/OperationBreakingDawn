@@ -17,15 +17,29 @@
     
 - name: yum install packstack
   yum:
-    name: "{{ openstack }}"
-    state: latest 
-  with_items:
+    name:
       - openstack-packstack
+      - openstack-utils
       - openstack-heat-*
       - python-heatclient
-  loop_control:
-    loop_var: openstack
 
-- name: change network ifcfg
+- name: Stop NetworkManager
+  systemd:
+    state: stopped
+    name: NetworkManager
+
+- name: Restart network
+  systemd:
+    state: restarted
+    name: network
+
+- name: packstack install
   shell: |-
     packstack --install-host={{ item.multinode }}
+
+- name: packstack answer configuration
+  shell: |-
+    packstack --answer-file=/media/sf_git/shift_dropme/Ansible/ansible_dest/answer.cfg
+    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
+
+
