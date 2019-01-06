@@ -16,8 +16,12 @@
   roles:
      - masternode
 
-
 - name: openstack setup
-  hosts: external
+  hosts: internal
   roles:
      - OpenStack
+
+- name: openstack install
+  hosts: control
+  roles:
+     - install
