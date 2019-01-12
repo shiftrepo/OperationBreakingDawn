@@ -17,7 +17,7 @@
 - name: Generate /etc/hosts file
   template:
     src=templates/hosts.j2
-    dest=/etc/hosts_test
+    dest=/etc/hosts
   register: hostsoutput
 - debug:
     msg: "{{ hostsoutput }}"
