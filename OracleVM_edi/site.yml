@@ -1,20 +1,20 @@
 ---
-- name: Common configuration
+- name: masternode setup
+  hosts: masternode
+  roles:
+     - masternode
+
+- name: Internal config hosts
   hosts: all
 #  gather_facts: False
   roles:
-     - common
+     - config_hosts
 
 #- name: gateway setup
 #  hosts: gateway
 #  roles:
 #     - ntp
 #     - dns
-
-- name: masternode setup
-  hosts: masternode
-  roles:
-     - masternode
 
 - name: openstack setup
   hosts: internal
