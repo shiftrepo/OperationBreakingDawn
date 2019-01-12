@@ -1,8 +1,8 @@
 ---
-- name: masternode setup
-  hosts: masternode
-  roles:
-     - masternode
+#- name: create_SSHkey_for_root
+#  hosts: masternode
+#  roles:
+#     - create_SSHkey_for_root
 
 - name: Internal config hosts
   hosts: all
@@ -16,10 +16,10 @@
 #     - ntp
 #     - dns
 
-- name: openstack setup
+- name: pre task for installing OpenStack
   hosts: internal
   roles:
-     - OpenStack
+     - pre_task_for_installing_OpenStack
 
 - name: openstack install
   hosts: control

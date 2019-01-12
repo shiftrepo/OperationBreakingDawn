@@ -1,6 +1,7 @@
 ---
-# tasks file for OpenStack
+# tasks file for pre task for installing OpenStack
 #https://docs.ansible.com/ansible/authorized_key_module.html
+
 - name: deploy pub key
   authorized_key:
     user: root
