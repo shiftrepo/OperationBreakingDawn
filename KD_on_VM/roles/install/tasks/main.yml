@@ -1,0 +1,20 @@
+﻿---
+# tasks file for install
+
+- name: upgrade all packages
+  yum: name=* state=latest
+
+- name: yum install packstack
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+      - docker-ce-18.06.1.ce
+
+- name: change network ifcfg
+  shell: |-
+    yum -y install --nogpgcheck cri-o
+    yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+    sysctl --system
+

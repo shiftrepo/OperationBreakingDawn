@@ -1,0 +1,11 @@
+---
+# tasks file for servicectls
+- name: Restart docker
+  systemd:
+    state: restarted
+    name: docker
+
+- name: Restart kubelet
+  systemd:
+    state: restarted
+    name: kubelet
