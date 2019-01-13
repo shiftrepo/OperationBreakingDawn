@@ -1,0 +1,22 @@
+[[local|localrc]]
+DATABASE_PASSWORD=openstack
+RABBIT_PASSWORD=openstack
+SERVICE_TOKEN=openstack
+SERVICE_PASSWORD=openstack
+ADMIN_PASSWORD=openstack
+# magnum requires the following to be set correctly
+PUBLIC_INTERFACE=enp0s3
+# Enable barbican service and use it to store TLS certificates
+# For details https://docs.openstack.org/developer/magnum/userguide.html#transport-layer-security
+enable_plugin barbican https://git.openstack.org/openstack/barbican stable/queens
+enable_plugin heat https://git.openstack.org/openstack/heat stable/queens
+# Enable magnum plugin after dependent plugins
+enable_plugin magnum https://git.openstack.org/openstack/magnum stable/queens
+# Optional:  uncomment to enable the Magnum UI plugin in Horizon
+enable_plugin magnum-ui https://github.com/openstack/magnum-ui stable/queens
+enable_plugin ceilometer https://git.openstack.org/openstack/ceilometer stable/queens
+VOLUME_BACKING_FILE_SIZE=20G
+LOGFILE=/opt/stack/logs/stack.sh.log
+HOST_IP=172.16.107.10
+FLOATING_RANGE=192.168.55.0/24
+PUBLIC_NETWORK_GATEWAY=10.0.2.2

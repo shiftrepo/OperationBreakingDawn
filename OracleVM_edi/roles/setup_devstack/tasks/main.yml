@@ -1,0 +1,34 @@
+---
+# tasks file for setup_devstack
+- name: create stack user TODO use user module
+  shell: |-
+    useradd -s /bin/bash -d /opt/stack -m stack
+    echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
+
+- name: Create a root directory for devstack if needed
+  shell: |-
+    git clone --branch stable/queens https://git.openstack.org/openstack-dev/devstack /opt/stack/devstack #TODO stable/queens2var
+    chown -R stack:stack /opt/stack #TODO USER2var
+
+#- name: configure devstack
+#  copy:
+#    src: ../files/local.conf
+#    dest: /opt/stack/devstack/local.conf
+#    owner: stack
+#    group: stack
+
+- name: Generate /opt/stack/devstack/local.conf file
+  template:
+    src=templates/local.j2
+    dest=/opt/stack/devstack/local.conf
+  register: localfileout
+- debug: var=localfileout.stdout_lines
+
+- name: exec devstack
+  become_user: stack
+  shell: |-
+    cd /opt/stack/devstack
+    ./stack.sh
+  register: devstack
+  failed_when: "'FAILED' in command_result.stderr"
+- debug: var=devstack.stdout_lines
