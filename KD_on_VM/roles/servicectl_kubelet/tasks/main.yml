@@ -1,0 +1,6 @@
+---
+# tasks file for servicectls
+- name: Restart kubelet
+  systemd:
+    state: restarted
+    name: kubelet
