@@ -61,6 +61,16 @@
     state: enabled
     immediate: yes
 - firewalld:
+    port: 8001/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
     port: 30000-32767/tcp
     permanent: yes
     state: enabled
@@ -70,5 +80,6 @@
   shell: |-
     setenforce 0
     modprobe br_netfilter
+    modprobe overlay
     echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 

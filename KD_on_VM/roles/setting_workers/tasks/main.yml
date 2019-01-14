@@ -1,0 +1,6 @@
+---
+# tasks file for setting_workers
+#FIXME IP value
+- name: change network ifcfg
+  shell: |-
+    ssh 10.0.2.8 `kubeadm token create --print-join-command`
