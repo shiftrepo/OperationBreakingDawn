@@ -1,0 +1,17 @@
+---
+# tasks file for metrics-server
+
+- name: clone repo
+  shell: |-
+    cd ${HOME}
+    git clone https://github.com/kubernetes-incubator/metrics-server.git ${HOME}/metrics-server
+
+- name: copy a yaml
+  copy:
+    src: "{{ role_path }}/files/metrics-server-deployment.j2"
+    dest: ${HOME}/metrics-server/deploy/1.8+/metrics-server-deployment.yaml
+    mode: 0644
+
+- name: deploy yaml
+  shell: |-
+    kubectl apply -f ${HOME}/metrics-server/deploy/1.8+

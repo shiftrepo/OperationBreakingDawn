@@ -1,0 +1,85 @@
+﻿---
+# tasks file for pre task for installing OpenStack
+#https://docs.ansible.com/ansible/authorized_key_module.html
+
+- name: deploy pub key
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub') }}"
+  register: output
+- debug:
+    msg: "{{ output }}"
+
+- name: change hostname
+  shell: |-
+    hostnamectl set-hostname {{ inventory_hostname }}
+  register: hostnameoutput
+- debug:
+    msg: "{{ hostnameoutput }}"
+
+- name: SELinux permissive
+  selinux:
+    policy: targeted
+    state: permissive
+    
+- name: change network ifcfg
+  shell: |-
+    nmcli c modify enp0s9 ipv4.addresses {{ hostvars.ansible_host }}/24 
+    nmcli c down enp0s9
+    nmcli c up enp0s9
+    
+#https://docs.ansible.com/ansible/latest/modules/firewalld_module.html
+- firewalld:
+    port: 6443/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 2379-2380/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 10250/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 10251/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 10252/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 10253/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 8001/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+- firewalld:
+    port: 30000-32767/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+
+- name: change network ifcfg
+  shell: |-
+    setenforce 0
+    modprobe br_netfilter
+    modprobe overlay
+    echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+

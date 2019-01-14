@@ -1,0 +1,43 @@
+﻿---
+# tasks file for add_repo.da
+# https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html
+
+- name: Add prerequisites repo
+  yum_repository:
+    name: prerequisites
+    description: prerequisites
+    baseurl: https://cbs.centos.org/repos/paas7-crio-311-candidate/x86_64/os/
+
+- name: docker config file directory
+  file: path=/etc/docker state=directory owner=root group=root mode=0755
+
+- name: copy a kubernetes repo
+  copy:
+    src: "{{ role_path }}/files/kubernetesrepo.j2"
+    dest: /etc/yum.repos.d/kubernetes.repo
+    mode: 0644
+
+- name: copy a docker-ce repo
+  copy:
+    src: "{{ role_path }}/files/docker-ce.j2"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: 0644
+
+- name: copy 99-kubernetes-cri.con
+  copy:
+    src: "{{ role_path }}/files/99-kubernetes-cri.j2"
+    dest: /etc/sysctl.d/99-kubernetes-cri.conf
+    mode: 0644
+
+- name: docker conf
+  copy:
+    src: "{{ role_path }}/files/daemon.j2"
+    dest: /etc/docker/daemon.json
+    mode: 0644
+
+- name: docker k8s conf
+  copy:
+    src: "{{ role_path }}/files/k8s.j2"
+    dest: /etc/sysctl.d/k8s.conf
+    mode: 0644
+

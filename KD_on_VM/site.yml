@@ -1,0 +1,52 @@
+﻿---
+- name: Internal config hosts
+  hosts: all
+#  gather_facts: False
+  roles:
+     - config_hosts
+
+- name: config_network
+  hosts: nodes
+  roles:
+     - config_network
+
+- name: add_repo
+  hosts: nodes
+  roles:
+     - add_repo.d
+
+- name: install
+  hosts: nodes
+  roles:
+     - install
+
+- name: servicectl_docker
+  hosts: nodes
+  roles:
+     - servicectl_docker
+
+- name: swapoff
+  hosts: nodes
+  roles:
+     - swapoff
+
+- name: exec_kubeadm_init
+  hosts: masternode
+  roles:
+     - exec_kubeadm_init
+
+- name: servicectl_kubelet
+  hosts: nodes
+  roles:
+     - servicectl_kubelet
+
+- name: showkubeinfos
+  hosts: nodes
+  roles:
+     - showkubeinfos
+
+- name: setting_workers
+  hosts: masternode
+  roles:
+     - setting_workers
+
