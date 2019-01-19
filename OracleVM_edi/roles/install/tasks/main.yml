@@ -22,6 +22,11 @@
       - openstack-utils
       - openstack-heat-*
       - python-heatclient
+      - openstack-magnum-api
+      - openstack-magnum-common
+      - openstack-magnum-conductor
+      - openstack-magnum-ui
+      - openstack-magnum-doc
 
 - name: Stop NetworkManager
   systemd:
