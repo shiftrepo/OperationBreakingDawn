@@ -6,10 +6,10 @@
 - name: packstack answer configuration
   shell: |-
     packstack --answer-file=/media/sf_git/OperationBreakingDawn/OracleVM_edi/roles/install/files/answer.cfg
-    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
   register: asnwer
 - debug: var=answer.stdout_lines
 
 - name: add br-ex to neutron ini
   shell: |-
+    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
     sed -i -e 's/#external_network_bridge =/external_network_bridge = br-ex/g' /etc/neutron/l3_agent.ini

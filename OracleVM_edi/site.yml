@@ -6,6 +6,7 @@
 
 - name: Internal config hosts
   hosts: all
+  strategy: debug
 #  gather_facts: False
   roles:
      - config_hosts
@@ -18,10 +19,12 @@
 
 - name: pre task for installing OpenStack
   hosts: internal
+  strategy: debug
   roles:
      - pre_task_for_installing_OpenStack
 
 - name: openstack install
   hosts: control
+  strategy: debug
   roles:
      - install
