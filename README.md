@@ -1,6 +1,6 @@
 # shift
-shift
-
+Exampleとしての環境は、Draw-IOにて作成  
+./Doc/ExampleEnvironment.xml
 
 とりあえず実行用
 ~~~
