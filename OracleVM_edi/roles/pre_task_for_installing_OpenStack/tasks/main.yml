@@ -35,4 +35,41 @@
 #    firewall-cmd --reload
 #    
 #    FirewallD is not running
+# tasks file for install
+- name: yum install repo
+  yum:
+    name: "{{ pre }}"
+    state: latest 
+  with_items:
+      - yum-utils
+      - yum-plugin-priorities
+      - epel-release
+#       - centos-release-openstack-rocky
+#       - https://repos.fedorapeople.org/repos/openstack/openstack-rocky/rdo-release-rocky-0.noarch.rpm
+      - centos-release-openstack-queens
+      - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
+  loop_control:
+    loop_var: pre
+    
+- name: yum install packstack
+  yum:
+    name:
+      - openstack-packstack
+      - openstack-utils
+      - openstack-heat-*
+      - python-heatclient
+      - openstack-magnum-api
+      - openstack-magnum-common
+      - openstack-magnum-conductor
+      - openstack-magnum-ui
+      - openstack-magnum-doc
 
+- name: Stop NetworkManager
+  systemd:
+    state: stopped
+    name: NetworkManager
+
+- name: Restart network
+  systemd:
+    state: restarted
+    name: network

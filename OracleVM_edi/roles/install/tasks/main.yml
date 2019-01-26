@@ -1,52 +1,15 @@
 ---
-# tasks file for install
-- name: yum install repo
-  yum:
-    name: "{{ pre }}"
-    state: latest 
-  with_items:
-      - yum-utils
-      - yum-plugin-priorities
-      - epel-release
-#       - centos-release-openstack-rocky
-#       - https://repos.fedorapeople.org/repos/openstack/openstack-rocky/rdo-release-rocky-0.noarch.rpm
-      - centos-release-openstack-queens
-      - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
-  loop_control:
-    loop_var: pre
-    
-- name: yum install packstack
-  yum:
-    name:
-      - openstack-packstack
-      - openstack-utils
-      - openstack-heat-*
-      - python-heatclient
-      - openstack-magnum-api
-      - openstack-magnum-common
-      - openstack-magnum-conductor
-      - openstack-magnum-ui
-      - openstack-magnum-doc
-
-- name: Stop NetworkManager
-  systemd:
-    state: stopped
-    name: NetworkManager
-
-- name: Restart network
-  systemd:
-    state: restarted
-    name: network
-
-- name: packstack install
-  shell: |-
-    packstack --install-host={{ item.multinode }}
+#- name: packstack install
+#  shell: |-
+#    packstack --install-host={{ item.multinode }}
 
 - name: packstack answer configuration
   shell: |-
-    packstack --answer-file=/media/sf_git/shift_dropme/Ansible/ansible_dest/answer.cfg
-    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
+    packstack --answer-file=/media/sf_git/OperationBreakingDawn/OracleVM_edi/roles/install/files/answer.cfg
+  register: asnwer
+- debug: var=answer.stdout_lines
 
 - name: add br-ex to neutron ini
   shell: |-
+    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
     sed -i -e 's/#external_network_bridge =/external_network_bridge = br-ex/g' /etc/neutron/l3_agent.ini
