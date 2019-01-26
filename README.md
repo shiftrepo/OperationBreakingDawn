@@ -1,7 +1,7 @@
 # shift
 Exampleとしての環境は、[Draw.io](https://www.draw.io)にて作成  
-
 ./Doc/ExampleEnvironment.xml  
+Githubとサービス連携できますので、Draw.ioからSHIFTのリポジトリにアクセスできます。
 
 とりあえず実行用
 ~~~
