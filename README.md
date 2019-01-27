@@ -1,6 +1,6 @@
 # SHIFT
 ## 環境
-![exampleenvironment](https://user-images.githubusercontent.com/9310683/51794411-df72a180-2215-11e9-82f5-48bb6ccd6dd4.png)
+![exampleenvironment-2](https://user-images.githubusercontent.com/9310683/51798379-4e6eeb00-2254-11e9-9caf-ab99bb473ef9.png)
 
 ポイント
 > 知ったかぶりWindowsドメインが環境に影響します。ドメイン構築している場合は、NICの設定を忘れずに。  
