@@ -18,13 +18,13 @@
 #     - dns
 
 - name: pre task for installing OpenStack
-  hosts: internal
+  hosts: nodes
   strategy: debug
   roles:
      - pre_task_for_installing_OpenStack
 
 - name: openstack install
-  hosts: control
+  hosts: masternode
   strategy: debug
   roles:
      - install
