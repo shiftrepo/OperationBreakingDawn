@@ -11,8 +11,9 @@ Exampleとしての環境は、[Draw.io](https://www.draw.io)にて作成
 Githubとサービス連携できますので、Draw.ioからSHIFTのリポジトリにアクセスできます。
 
 ## 実行
-とりあえず実行用
+とりあえず実行用 ansibleは、virtualenv内にpython3で設定するため最初にworkonで切り替えする。
 ~~~
+workon ansible
 cd OracleVM_edi
 ansible-playbook -i hosts/oracleVM/ site.yml
 ~~~
