@@ -39,7 +39,7 @@
 - name: yum install repo
   yum:
     name: "{{ pre }}"
-    state: latest 
+    state: latest
   with_items:
       - yum-utils
       - yum-plugin-priorities
@@ -50,6 +50,7 @@
       - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
   loop_control:
     loop_var: pre
+  when: not ansible_check_mode
     
 - name: yum install packstack
   yum:
@@ -63,6 +64,7 @@
       - openstack-magnum-conductor
       - openstack-magnum-ui
       - openstack-magnum-doc
+  when: not ansible_check_mode
 
 - name: Stop NetworkManager
   systemd:

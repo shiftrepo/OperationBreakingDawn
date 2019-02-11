@@ -3,9 +3,16 @@
 #  shell: |-
 #    packstack --install-host={{ item.multinode }}
 
+- name: install pexpect
+  pip:
+    name: pexpect
+  become: yes
+
 - name: packstack answer configuration
-  shell: |-
-    packstack --answer-file=/media/sf_git/OperationBreakingDawn/OracleVM_edi/roles/install/files/answer.cfg
+  expect:
+    command: packstack --answer-file={{ role_path }}/files/answer.cfg
+    responses:
+      "root@.* password.": "{{ all_root_passwd }}"
   register: asnwer
 - debug: var=answer.stdout_lines
 
