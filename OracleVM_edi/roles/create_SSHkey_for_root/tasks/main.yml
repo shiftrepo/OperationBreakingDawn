@@ -10,3 +10,18 @@
   register: output
 - debug:
     msg: "{{ output }}"
+
+#- name: set ansible_python_interpreter
+#  set_fact: ansible_python_interpreter="/root/.virtualenvs/ansible/bin/python3"
+
+#- name: ssh key copy 10.0.2.6
+#  expect:
+#    command: ssh-copy-id -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa.pub 10.0.2.6
+#    responses:
+#      "root@10.0.2.6.* password.*": "{{ all_root_passwd }}"
+
+#- name: ssh key copy 10.0.2.8
+#  expect:
+#    command: ssh-copy-id -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa.pub 10.0.2.8
+#    responses:
+#      "root@10.0.2.8.* password.*": "{{ all_root_passwd }}"

@@ -5,3 +5,23 @@
   hostname: 
     name: ntp001.shift
 
+- name: install ntp
+  yum:
+    name: ntp
+    state: latest
+
+- name: copy a ntp.conf
+  copy:
+    src: "{{ role_path }}/files/ntp.conf"
+    dest: "/etc/ntp.conf"
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Start ntpd
+
+- name: firewalld
+  firewalld:
+    service: ntp
+    permanent: yes
+    state: enabled

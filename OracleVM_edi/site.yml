@@ -1,8 +1,5 @@
 ﻿---
-#- name: create_SSHkey_for_root
-#  hosts: masternode
-#  roles:
-#     - create_SSHkey_for_root
+
 - name: ntp
   hosts: gateway
   strategy: debug
@@ -27,6 +24,11 @@
   strategy: debug
   roles:
      - pre_task_for_installing_OpenStack
+
+- name: create_SSHkey_for_root
+  hosts: masternode
+  roles:
+     - create_SSHkey_for_root
 
 - name: openstack install
   hosts: masternode
