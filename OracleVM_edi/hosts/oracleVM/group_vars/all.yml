@@ -1,5 +1,6 @@
 ---
 ansi_local_home: /media/sf_git/shift/Ansible
+all_root_passwd: "!root"
 item:
   adminpass: openstack
   fqdn4ssl: control000.shift
