@@ -9,3 +9,4 @@
         command: /root/taiwa.sh
         responses:
           '^実行するコマンドを.*': 'wawawa'
+        timeout: 20

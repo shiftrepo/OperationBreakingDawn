@@ -2,18 +2,22 @@
 #- name: packstack install
 #  shell: |-
 #    packstack --install-host={{ item.multinode }}
+#- name: set ansible_python_interpreter
+#  set_fact: ansible_python_interpreter="/root/.virtualenvs/ansible/bin/python3"
 
-- name: install pexpect
-  pip:
-    name: pexpect
-  become: yes
+#- name: packstack answer configuration
+#  expect:
+#    command: packstack --answer-file="{{ role_path }}/files/answer.cfg"
+#    responses:
+#      "root@10.0.2.6.* password.*": "{{ all_root_passwd }}"
+#      "root@10.0.2.8.* password.*": "{{ all_root_passwd }}"
+#  register: answer
+#- debug: var=answer.stdout_lines
 
 - name: packstack answer configuration
-  expect:
-    command: packstack --answer-file={{ role_path }}/files/answer.cfg
-    responses:
-      "root@.* password.": "{{ all_root_passwd }}"
-  register: asnwer
+  shell: |-
+    packstack --answer-file="{{ role_path }}/files/answer.cfg"
+  register: answer
 - debug: var=answer.stdout_lines
 
 - name: add br-ex to neutron ini
