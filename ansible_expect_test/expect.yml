@@ -1,0 +1,11 @@
+- hosts: ntp
+  gather_facts: false
+  tasks:
+    - name: set ansible_python_interpreter
+      set_fact: ansible_python_interpreter="/root/.virtualenvs/ansible/bin/python3"
+
+    - name: wget
+      expect:
+        command: /root/taiwa.sh
+        responses:
+          '^実行するコマンドを.*': 'wawawa'
