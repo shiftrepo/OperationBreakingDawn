@@ -20,7 +20,7 @@
 #     - dns
 
 - name: pre task for installing OpenStack
-  hosts: internal
+  hosts: external
   roles:
      - pre_task_for_installing_OpenStack
 
@@ -30,7 +30,7 @@
      - create_SSHkey_for_root
 
 - name: openstack install
-  hosts: control
+  hosts: masternode
   strategy: debug
   roles:
      - install
