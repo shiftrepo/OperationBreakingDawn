@@ -7,7 +7,7 @@
      - ntp
 
 - name: Internal config hosts
-  hosts: nodes
+  hosts: all
   strategy: debug
 #  gather_facts: False
   roles:
@@ -20,8 +20,7 @@
 #     - dns
 
 - name: pre task for installing OpenStack
-  hosts: nodes
-  strategy: debug
+  hosts: internal
   roles:
      - pre_task_for_installing_OpenStack
 
@@ -31,7 +30,7 @@
      - create_SSHkey_for_root
 
 - name: openstack install
-  hosts: masternode
+  hosts: control
   strategy: debug
   roles:
      - install

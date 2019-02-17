@@ -23,11 +23,11 @@
     policy: targeted
     state: permissive
     
-- name: change network ifcfg
-  shell: |-
-    nmcli c modify enp0s9 ipv4.addresses {{ hostvars.ansible_host }}/24 
-    nmcli c down enp0s9
-    nmcli c up enp0s9
+#- name: change network ifcfg
+#  shell: |-
+#    nmcli c modify ens35 ipv4.addresses {{ hostvars.ansible_host }}/24 
+#    nmcli c down ens35
+#    nmcli c up ens35
     
 #- name: firewalld
 #  shell: |-
@@ -70,6 +70,11 @@
   systemd:
     state: stopped
     name: NetworkManager
+
+- name: disable service NetworkManager
+  systemd:
+    name: NetworkManager
+    enabled: no
 
 - name: Restart network
   systemd:
