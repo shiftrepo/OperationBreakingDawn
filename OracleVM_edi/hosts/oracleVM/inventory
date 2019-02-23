@@ -4,25 +4,25 @@ all:
       children:
         gateway:
           hosts:
-            ntp001.shift:
+            ntp00.substance:
               ansible_host: 10.0.2.10
         nodes:
           children:
             masternode:
               hosts:
-                master000.shift:
+                master00.substance:
                   ansible_host: 10.0.2.6
             slavenodes:
               hosts:
-                node001.shift:
+                node00.substance:
                   ansible_host: 10.0.2.8
     internal:
       children:
         control:
           hosts:
-            control000.shift:
+            control00.substance:
               ansible_host: 172.16.107.10
         compute:
           hosts:
-            compute001.shift:
+            compute00.substance:
               ansible_host: 172.16.107.20

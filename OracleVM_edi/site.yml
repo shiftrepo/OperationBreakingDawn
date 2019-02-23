@@ -7,7 +7,7 @@
      - ntp
 
 - name: Internal config hosts
-  hosts: all
+  hosts: external
   strategy: debug
 #  gather_facts: False
   roles:
