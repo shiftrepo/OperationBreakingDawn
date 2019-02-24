@@ -8,7 +8,6 @@
 
 - name: Internal config hosts
   hosts: external
-  strategy: debug
 #  gather_facts: False
   roles:
      - config_hosts

@@ -38,31 +38,42 @@
 # tasks file for install
 - name: yum install repo & utils
   yum:
+    name:
 #    name: "{{ pre }}"
 #    state: latest
 #  with_items:
       - yum-utils
       - yum-plugin-priorities
       - epel-release
-#       - centos-release-openstack-rocky
 #       - https://repos.fedorapeople.org/repos/openstack/openstack-rocky/rdo-release-rocky-0.noarch.rpm
-      - centos-release-openstack-queens
-      - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
+#      - http://mirror.centos.org/centos/7/extras/x86_64/Packages/centos-release-openstack-rocky-1-1.el7.centos.noarch.rpm
+#      - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
+#      - http://mirror.centos.org/centos/7/extras/x86_64/Packages/centos-release-openstack-queens-1-2.el7.centos.noarch.rpm
 #  loop_control:
 #    loop_var: pre
   when: not ansible_check_mode
 
-- name: yum install kvm
+#- name: yum install kvm
+#  yum:
+#    name:
+#      - kvm
+#  when: not ansible_check_mode
+
+#- name: Add kvm module
+#  modprobe:
+#    name: kvm
+#    state: present
+
+#- name: Add kvm-intel module
+#  modprobe:
+#    name: kvm-intel
+#    state: present
+
+- name: yum install centos-release-openstack-queens
   yum:
     name:
-      - kvm
-
-- name: Add kvm module
-  modprobe:
-    name:
-      - kvm
-      - kvm-intel
-    state: present
+      - centos-release-openstack-rocky
+#      - centos-release-openstack-queens
 
 - name: yum install packstack
   yum:

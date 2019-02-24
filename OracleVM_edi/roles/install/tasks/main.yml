@@ -7,7 +7,7 @@
 
 #- name: packstack answer configuration
 #  expect:
-#    command: packstack --answer-file="{{ role_path }}/files/answer.cfg"
+#    command: packstack --answer-file="{{ role_path }}/files/answers.cfg"
 #    responses:
 #      "root@10.0.2.6.* password.*": "{{ all_root_passwd }}"
 #      "root@10.0.2.8.* password.*": "{{ all_root_passwd }}"
@@ -16,11 +16,11 @@
 
 - name: packstack answer configuration
   shell: |-
-    packstack --answer-file="{{ role_path }}/files/answer.cfg"
+    packstack --answer-file="{{ role_path }}/files/answer_rocky.cfg"
   register: answer
 - debug: var=answer.stdout_lines
 
 - name: add br-ex to neutron ini
   shell: |-
-    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
     sed -i -e 's/#external_network_bridge =/external_network_bridge = br-ex/g' /etc/neutron/l3_agent.ini
+#    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service
