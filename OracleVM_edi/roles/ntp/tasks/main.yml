@@ -25,6 +25,7 @@
     service: ntp
     permanent: yes
     state: enabled
+    immediate: yes
 
 - name: enable service ntpd and ensure it is not masked
   systemd:
