@@ -25,3 +25,14 @@
     service: ntp
     permanent: yes
     state: enabled
+    immediate: yes
+
+- name: enable service ntpd and ensure it is not masked
+  systemd:
+    name: ntpd
+    enabled: yes
+
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: ntpd

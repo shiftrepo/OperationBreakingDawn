@@ -1,17 +1,15 @@
 ﻿---
+- name: Internal config hosts
+  hosts: external
+  gather_facts: False
+  roles:
+     - config_hosts
 
 - name: ntp
   hosts: gateway
   strategy: debug
   roles:
      - ntp
-
-- name: Internal config hosts
-  hosts: nodes
-  strategy: debug
-#  gather_facts: False
-  roles:
-     - config_hosts
 
 #- name: gateway setup
 #  hosts: gateway
@@ -20,15 +18,24 @@
 #     - dns
 
 - name: pre task for installing OpenStack
-  hosts: nodes
-  strategy: debug
+  hosts: external
   roles:
      - pre_task_for_installing_OpenStack
 
-- name: create_SSHkey_for_root
-  hosts: masternode
+- name: setting_network
+  hosts: nodes
   roles:
-     - create_SSHkey_for_root
+     - setting_network
+
+- name: install_openstack
+  hosts: nodes
+  roles:
+     - install_openstack
+
+#- name: create_SSHkey_for_root
+#  hosts: masternode
+#  roles:
+#     - create_SSHkey_for_root
 
 - name: openstack install
   hosts: masternode

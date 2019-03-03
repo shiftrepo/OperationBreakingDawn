@@ -3,6 +3,6 @@
 - name: Start ntpd
   service:
     name: ntpd
-    state: reloaded
+    state: started
     enabled: yes
 
