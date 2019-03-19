@@ -1,0 +1,28 @@
+all:
+  children:
+    external:
+      children:
+        gateway:
+          hosts:
+            ntp00.substance:
+              ansible_host: 192.168.20.1
+        nodes:
+          children:
+            masternode:
+              hosts:
+                master00.substance:
+                  ansible_host: 192.168.20.3
+            slavenodes:
+              hosts:
+                node00.substance:
+                  ansible_host: 192.168.20.4
+    internal:
+      children:
+        control:
+          hosts:
+            control00.substance:
+              ansible_host: 172.16.107.3
+        compute:
+          hosts:
+            compute00.substance:
+              ansible_host: 172.16.107.4
