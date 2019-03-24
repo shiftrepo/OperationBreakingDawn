@@ -1,0 +1,66 @@
+---
+# tasks file for install_openstack
+- name: yum install repo & utils
+  yum:
+    name:
+#    name: "{{ pre }}"
+#    state: latest
+#  with_items:
+      - yum-utils
+      - yum-plugin-priorities
+      - epel-release
+      - https://rdoproject.org/repos/rdo-release.rpm
+      - centos-release-openstack-queens
+      - https://repos.fedorapeople.org/repos/openstack/openstack-queens/rdo-release-queens-1.noarch.rpm
+#     - http://mirror.centos.org/centos/7/extras/x86_64/Packages/centos-release-openstack-rocky-1-1.el7.centos.noarch.rpm
+#      - http://mirror.centos.org/centos/7/extras/x86_64/Packages/centos-release-openstack-rocky-1-1.el7.centos.noarch.rpm
+#       - https://repos.fedorapeople.org/repos/openstack/openstack-rocky/rdo-release-rocky-0.noarch.rpm
+#  loop_control:
+#    loop_var: pre
+#  when: not ansible_check_mode
+
+#- name: yum install kvm
+#  yum:
+#    name:
+#      - kvm
+#  when: not ansible_check_mode
+
+#- name: Add kvm module
+#  modprobe:
+#    name: kvm
+#    state: present
+
+#- name: Add kvm-intel module
+#  modprobe:
+#    name: kvm-intel
+#    state: present
+
+- name: yum install centos-release-openstack
+  yum:
+    name:
+      - centos-release-openstack-queens
+#      - centos-release-openstack-rocky
+
+- name: yum config
+  shell: |-
+    yum-config-manager --enable openstack-queens
+#    yum-config-manager --enable openstack-rocky
+
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: yum install packstack
+  yum:
+    name:
+      - openstack-packstack
+      - openstack-utils
+      - openstack-heat-*
+      - python-heatclient
+#      - openstack-magnum-api
+#      - openstack-magnum-common
+#      - openstack-magnum-conductor
+#      - openstack-magnum-ui
+#      - openstack-magnum-doc
+  when: not ansible_check_mode

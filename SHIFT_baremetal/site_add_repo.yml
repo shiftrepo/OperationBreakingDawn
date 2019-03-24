@@ -1,0 +1,5 @@
+---
+- name: add_repo.d
+  hosts: control
+  roles:
+     - add_repo.d

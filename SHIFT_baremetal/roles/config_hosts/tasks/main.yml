@@ -1,0 +1,42 @@
+---
+# tasks file for common
+#- name: testing env
+#  shell: |-
+#    uname -n
+#    env
+#- debug:
+#    var:
+#      hostvars[inventory_hostname]['ansible_host']
+#- debug:
+#    var:
+#      hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+#- debug:
+#    var:
+#      hostvars[inventory_hostname]
+- name: Generate /etc/hosts file
+  template:
+    src=templates/hosts.j2
+    dest=/etc/hosts
+  register: hostsoutput
+- debug:
+    msg: "{{ hostsoutput }}"
+- debug:
+    var:
+      hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+
+- name: change hostname
+  shell: |-
+    hostnamectl set-hostname {{ inventory_hostname }}
+  register: hostnameoutput
+- debug:
+    msg: "{{ hostnameoutput }}"
+
+- name: SELinux permissive
+  selinux:
+    policy: targeted
+    state: permissive
+
+# message as task
+#- name: show previous shell stdout
+#  debug:
+#    msg: "{{ output.stdout }}"

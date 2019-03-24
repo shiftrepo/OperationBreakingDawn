@@ -1,0 +1,45 @@
+---
+# tasks file for setup_dev_environment_for_magnum
+
+- name: yum install required
+  yum:
+    name:
+      - python-devel
+      - openssl-devel
+      - mariadb-devel
+      - curl
+      - libxml2-devel
+      - libxslt-devel
+      - postgresql-devel
+      - git
+      - libffi-devel
+      - gettext
+      - gcc
+
+- name: create magnum user
+  shell: |-
+    groupadd --system magnum
+    useradd --home-dir "/var/lib/magnum" --create-home --system --shell /bin/false -g magnum magnum
+    mkdir -p /var/log/magnum
+    mkdir -p /etc/magnum
+    chown magnum:magnum /var/log/magnum
+    chown magnum:magnum /var/lib/magnum
+    chown magnum:magnum /etc/magnum
+
+- name: install pip & library
+  shell: |-
+    curl -s https://bootstrap.pypa.io/get-pip.py | sudo python
+    pip install virtualenv flake8 tox testrepository git-review
+    pip install -U virtualenv
+
+- name: git clone magnum
+  shell: |-
+    cd ~
+    git clone --branch stable/queens https://git.openstack.org/openstack/magnum
+    cd magnum
+    chown -R magnum:magnum ../magnum
+    #tox
+    #TODO check logic
+    #py27: commands succeeded
+    #pep8: commands succeeded
+    
