@@ -228,3 +228,109 @@ DEVICE=ens34
 ONBOOT=yes
 IPADDR=192.168.211.6
 PREFIX=24
+qrouter-0044aa08-d0b9-4b22-9f2a-f8b1dba7529e
+qrouter-bd931a5a-8f86-4d7c-87c9-4e3d6ad24761 (id: 2)
+qrouter-7b9dc9ee-0fd0-4066-9d01-846371a8139a (id: 3)
+qdhcp-c6b8d739-6db9-4c08-b4a6-ca660c6990c1 (id: 0)
+qdhcp-41baf273-ef77-44a1-9243-fd17d1bd20db (id: 1)
++-------------------------------------+----------------------------------------------------------+
+| Field                               | Value                                                    |
++-------------------------------------+----------------------------------------------------------+
+| OS-DCF:diskConfig                   | MANUAL                                                   |
+| OS-EXT-AZ:availability_zone         | nova                                                     |
+| OS-EXT-SRV-ATTR:host                | master00.substance                                       |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | master00.substance                                       |
+| OS-EXT-SRV-ATTR:instance_name       | instance-00000008                                        |
+| OS-EXT-STS:power_state              | Running                                                  |
+| OS-EXT-STS:task_state               | None                                                     |
+| OS-EXT-STS:vm_state                 | active                                                   |
+| OS-SRV-USG:launched_at              | 2019-03-24T18:34:46.000000                               |
+| OS-SRV-USG:terminated_at            | None                                                     |
+| accessIPv4                          |                                                          |
+| accessIPv6                          |                                                          |
+| addresses                           | heat-net=172.16.22.4, 10.0.2.110                         |
+| config_drive                        |                                                          |
+| created                             | 2019-03-24T18:34:33Z                                     |
+| flavor                              | m1.tiny (1)                                              |
+| hostId                              | 52700c8eac97feaa6842808507a9d183acf833816d9599e054a7c99b |
+| id                                  | d1faeb15-97dc-4e8d-9bc3-7214ae7fbb8f                     |
+| image                               | Cirros (3f54e664-9790-43e9-9cb9-b96ed87cd513)            |
+| key_name                            | Sample-KeyPair                                           |
+| name                                | simple-server2-server2-yr3aajaka2vj                      |
+| progress                            | 0                                                        |
+| project_id                          | d36c033241b346ff84753d4a975baaba                         |
+| properties                          |                                                          |
+| security_groups                     | name='open-all'                                          |
+| status                              | ACTIVE                                                   |
+| updated                             | 2019-04-02T00:19:02Z                                     |
+| user_id                             | 584be228aebc43f8871f4b29be27d53d                         |
+| volumes_attached                    |                                                          |
++-------------------------------------+----------------------------------------------------------+
++--------------------------------------+----------+----------------------------------+-----------------------------------------------------+
+| id                                   | name     | tenant_id                        | subnets                                             |
++--------------------------------------+----------+----------------------------------+-----------------------------------------------------+
+| 41baf273-ef77-44a1-9243-fd17d1bd20db | heat-net | d36c033241b346ff84753d4a975baaba | bddca1f5-c71e-4daa-8a8f-4b2e3ae2cf28 172.16.22.0/24 |
+| c6b8d739-6db9-4c08-b4a6-ca660c6990c1 | heat-net | d36c033241b346ff84753d4a975baaba | 387d8813-750b-4883-ad9d-b6f7f45b6b93 172.16.22.0/24 |
+| cae7d59f-02c8-46c2-ab33-68a71e011eb6 | Public   | d36c033241b346ff84753d4a975baaba | 3ad4f678-7875-4faf-88b3-e60ee0c0352e 10.0.2.0/24    |
++--------------------------------------+----------+----------------------------------+-----------------------------------------------------+
++--------------------------------------+---------------+----------------------------------+----------------+--------------------------------------------------+
+| id                                   | name          | tenant_id                        | cidr           | allocation_pools                                 |
++--------------------------------------+---------------+----------------------------------+----------------+--------------------------------------------------+
+| 387d8813-750b-4883-ad9d-b6f7f45b6b93 | heat-subnet   | d36c033241b346ff84753d4a975baaba | 172.16.22.0/24 | {"start": "172.16.22.1", "end": "172.16.22.253"} |
+| 3ad4f678-7875-4faf-88b3-e60ee0c0352e | Public-Subnet | d36c033241b346ff84753d4a975baaba | 10.0.2.0/24    | {"start": "10.0.2.100", "end": "10.0.2.150"}     |
+| bddca1f5-c71e-4daa-8a8f-4b2e3ae2cf28 | heat-subnet   | d36c033241b346ff84753d4a975baaba | 172.16.22.0/24 | {"start": "172.16.22.1", "end": "172.16.22.253"} |
++--------------------------------------+---------------+----------------------------------+----------------+--------------------------------------------------+
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| availability_zone_hints   |                                      |
+| availability_zones        | nova                                 |
+| created_at                | 2019-03-24T15:43:39Z                 |
+| description               |                                      |
+| id                        | cae7d59f-02c8-46c2-ab33-68a71e011eb6 |
+| ipv4_address_scope        |                                      |
+| ipv6_address_scope        |                                      |
+| is_default                | False                                |
+| mtu                       | 1450                                 |
+| name                      | Public                               |
+| port_security_enabled     | True                                 |
+| project_id                | d36c033241b346ff84753d4a975baaba     |
+| provider:network_type     | vxlan                                |
+| provider:physical_network |                                      |
+| provider:segmentation_id  | 20                                   |
+| qos_policy_id             |                                      |
+| revision_number           | 6                                    |
+| router:external           | True                                 |
+| shared                    | True                                 |
+| status                    | ACTIVE                               |
+| subnets                   | 3ad4f678-7875-4faf-88b3-e60ee0c0352e |
+| tags                      |                                      |
+| tenant_id                 | d36c033241b346ff84753d4a975baaba     |
+| updated_at                | 2019-03-24T15:43:44Z                 |
++---------------------------+--------------------------------------+
++-------------------+----------------------------------------------+
+| Field             | Value                                        |
++-------------------+----------------------------------------------+
+| allocation_pools  | {"start": "10.0.2.100", "end": "10.0.2.150"} |
+| cidr              | 10.0.2.0/24                                  |
+| created_at        | 2019-03-24T15:43:44Z                         |
+| description       |                                              |
+| dns_nameservers   |                                              |
+| enable_dhcp       | False                                        |
+| gateway_ip        | 10.0.2.2                                     |
+| host_routes       |                                              |
+| id                | 3ad4f678-7875-4faf-88b3-e60ee0c0352e         |
+| ip_version        | 4                                            |
+| ipv6_address_mode |                                              |
+| ipv6_ra_mode      |                                              |
+| name              | Public-Subnet                                |
+| network_id        | cae7d59f-02c8-46c2-ab33-68a71e011eb6         |
+| project_id        | d36c033241b346ff84753d4a975baaba             |
+| revision_number   | 0                                            |
+| service_types     |                                              |
+| subnetpool_id     |                                              |
+| tags              |                                              |
+| tenant_id         | d36c033241b346ff84753d4a975baaba             |
+| updated_at        | 2019-03-24T15:43:44Z                         |
++-------------------+----------------------------------------------+
