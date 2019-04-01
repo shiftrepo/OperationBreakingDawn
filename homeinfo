@@ -1,0 +1,230 @@
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master ovs-system state UP group default qlen 1000
+    link/ether 00:50:56:23:42:f7 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::250:56ff:fe23:42f7/64 scope link 
+       valid_lft forever preferred_lft forever
+3: ens34: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 00:50:56:33:62:ca brd ff:ff:ff:ff:ff:ff
+    inet 192.168.211.6/24 brd 192.168.211.255 scope global ens34
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:fe33:62ca/64 scope link 
+       valid_lft forever preferred_lft forever
+4: ens35: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master ovs-system state UP group default qlen 1000
+    link/ether 00:50:56:35:40:7d brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::250:56ff:fe35:407d/64 scope link 
+       valid_lft forever preferred_lft forever
+5: ovs-system: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 8a:a5:2d:71:d2:c0 brd ff:ff:ff:ff:ff:ff
+6: br-vlan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 00:50:56:35:40:7d brd ff:ff:ff:ff:ff:ff
+    inet 172.16.107.10/24 brd 172.16.107.255 scope global br-vlan
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:fe35:407d/64 scope link 
+       valid_lft forever preferred_lft forever
+10: br-int: <BROADCAST,MULTICAST> mtu 1450 qdisc noop state DOWN group default qlen 1000
+    link/ether 12:53:4a:47:75:47 brd ff:ff:ff:ff:ff:ff
+12: br-tun: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether c2:aa:ad:cb:e9:46 brd ff:ff:ff:ff:ff:ff
+13: vxlan_sys_4789: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 65000 qdisc noqueue master ovs-system state UNKNOWN group default qlen 1000
+    link/ether aa:81:de:25:90:b6 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::a881:deff:fe25:90b6/64 scope link 
+       valid_lft forever preferred_lft forever
+14: br-ex: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 00:50:56:23:42:f7 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.6/24 brd 10.0.2.255 scope global br-ex
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:fe23:42f7/64 scope link 
+       valid_lft forever preferred_lft forever
+17: qbrda2bed65-4f: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UP group default qlen 1000
+    link/ether 46:17:7e:53:b5:59 brd ff:ff:ff:ff:ff:ff
+18: qvoda2bed65-4f@qvbda2bed65-4f: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default qlen 1000
+    link/ether 0a:ad:6a:de:f1:48 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::8ad:6aff:fede:f148/64 scope link 
+       valid_lft forever preferred_lft forever
+19: qvbda2bed65-4f@qvoda2bed65-4f: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1450 qdisc noqueue master qbrda2bed65-4f state UP group default qlen 1000
+    link/ether 46:17:7e:53:b5:59 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::4417:7eff:fe53:b559/64 scope link 
+       valid_lft forever preferred_lft forever
+20: qbr967564d2-4d: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UP group default qlen 1000
+    link/ether ea:f6:9a:2c:23:b7 brd ff:ff:ff:ff:ff:ff
+21: qvo967564d2-4d@qvb967564d2-4d: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default qlen 1000
+    link/ether 0e:9a:dc:d6:db:27 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::c9a:dcff:fed6:db27/64 scope link 
+       valid_lft forever preferred_lft forever
+22: qvb967564d2-4d@qvo967564d2-4d: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1450 qdisc noqueue master qbr967564d2-4d state UP group default qlen 1000
+    link/ether ea:f6:9a:2c:23:b7 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::e8f6:9aff:fe2c:23b7/64 scope link 
+       valid_lft forever preferred_lft forever
+cd80f24b-2224-4871-8c50-1b21021665d2
+    Manager "ptcp:6640:127.0.0.1"
+        is_connected: true
+    Bridge br-int
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        fail_mode: secure
+        Port int-br-vlan
+            Interface int-br-vlan
+                type: patch
+                options: {peer=phy-br-vlan}
+        Port "tap77916350-6d"
+            tag: 1
+            Interface "tap77916350-6d"
+                type: internal
+        Port "qr-ec23ce78-98"
+            tag: 1
+            Interface "qr-ec23ce78-98"
+                type: internal
+        Port br-int
+            Interface br-int
+                type: internal
+        Port "qvo967564d2-4d"
+            tag: 2
+            Interface "qvo967564d2-4d"
+        Port patch-tun
+            Interface patch-tun
+                type: patch
+                options: {peer=patch-int}
+        Port "tap0d7904e7-99"
+            tag: 2
+            Interface "tap0d7904e7-99"
+                type: internal
+        Port int-br-ex
+            Interface int-br-ex
+                type: patch
+                options: {peer=phy-br-ex}
+        Port "qvoda2bed65-4f"
+            tag: 2
+            Interface "qvoda2bed65-4f"
+        Port "qr-4ce17500-08"
+            tag: 2
+            Interface "qr-4ce17500-08"
+                type: internal
+    Bridge br-vlan
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        fail_mode: secure
+        Port "ens35"
+            Interface "ens35"
+        Port phy-br-vlan
+            Interface phy-br-vlan
+                type: patch
+                options: {peer=int-br-vlan}
+        Port br-vlan
+            Interface br-vlan
+                type: internal
+    Bridge br-ex
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        fail_mode: secure
+        Port "qg-53ed31e3-37"
+            Interface "qg-53ed31e3-37"
+                type: internal
+        Port phy-br-ex
+            Interface phy-br-ex
+                type: patch
+                options: {peer=int-br-ex}
+        Port "ens33"
+            Interface "ens33"
+        Port "qg-288515f8-58"
+            Interface "qg-288515f8-58"
+                type: internal
+        Port br-ex
+            Interface br-ex
+                type: internal
+    Bridge br-tun
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        fail_mode: secure
+        Port br-tun
+            Interface br-tun
+                type: internal
+        Port "vxlan-0a000208"
+            Interface "vxlan-0a000208"
+                type: vxlan
+                options: {df_default="true", in_key=flow, local_ip="10.0.2.6", out_key=flow, remote_ip="10.0.2.8"}
+        Port patch-int
+            Interface patch-int
+                type: patch
+                options: {peer=patch-tun}
+    ovs_version: "2.9.0"
+● network.service - LSB: Bring up/down networking
+   Loaded: loaded (/etc/rc.d/init.d/network; bad; vendor preset: disabled)
+   Active: active (exited) since 火 2019-04-02 09:07:43 JST; 6min ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 9735 ExecStart=/etc/rc.d/init.d/network start (code=exited, status=0/SUCCESS)
+    Tasks: 0
+
+ 4月 02 09:07:30 master00.substance ovs-vsctl[9962]: ovs|00001|vsctl|INFO|Called as ovs-vsctl -t 10 -- --may-exist add-br br-ex -- set bridge br-ex fail_mode=standalone
+ 4月 02 09:07:34 master00.substance network[9735]: Bringing up interface br-ex:  [  OK  ]
+ 4月 02 09:07:34 master00.substance ovs-vsctl[10064]: ovs|00001|vsctl|INFO|Called as ovs-vsctl -t 10 -- --may-exist add-br br-vlan -- set bridge br-vlan fail_mode=standalone
+ 4月 02 09:07:39 master00.substance network[9735]: Bringing up interface br-vlan:  [  OK  ]
+ 4月 02 09:07:39 master00.substance ovs-vsctl[10217]: ovs|00001|vsctl|INFO|Called as ovs-vsctl -t 10 -- --if-exists del-port br-ex ens33 -- add-port br-ex ens33
+ 4月 02 09:07:39 master00.substance network[9735]: Bringing up interface ens33:  [  OK  ]
+ 4月 02 09:07:43 master00.substance network[9735]: Bringing up interface ens34:  [  OK  ]
+ 4月 02 09:07:43 master00.substance ovs-vsctl[10396]: ovs|00001|vsctl|INFO|Called as ovs-vsctl -t 10 -- --if-exists del-port br-vlan ens35 -- add-port br-vlan ens35
+ 4月 02 09:07:43 master00.substance network[9735]: Bringing up interface ens35:  [  OK  ]
+ 4月 02 09:07:43 master00.substance systemd[1]: Started LSB: Bring up/down networking.
+PROXY_METHOD=none
+BROWSER_ONLY=no
+DEFROUTE=yes
+UUID=c1bcca05-24db-426e-bee4-b271b528e750
+ONBOOT=yes
+IPADDR=10.0.2.6
+PREFIX=24
+GATEWAY=10.0.2.2
+DOMAIN=SUBSTANCE
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=none
+TYPE=OVSBridge
+OVS_EXTRA="set bridge br-ex fail_mode=standalone"
+PROXY_METHOD=none
+BROWSER_ONLY=no
+DEFROUTE=yes
+UUID=81764ba7-78ba-4e78-81e1-fc0b31e0af84
+ONBOOT=yes
+IPADDR=172.16.107.10
+PREFIX=24
+DEVICE=br-vlan
+NAME=br-vlan
+DEVICETYPE=ovs
+OVSBOOTPROTO=none
+TYPE=OVSBridge
+OVS_EXTRA="set bridge br-vlan fail_mode=standalone"
+DEVICE=ens33
+NAME=ens33
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
+BOOTPROTO=none
+DEVICE=ens35
+NAME=ens35
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-vlan
+ONBOOT=yes
+BOOTPROTO=none
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens34
+UUID=9ac147e9-3858-49ec-854c-124409e904f4
+DEVICE=ens34
+ONBOOT=yes
+IPADDR=192.168.211.6
+PREFIX=24
