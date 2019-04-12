@@ -27,6 +27,10 @@ parameters:
     type: string
     description: Name of the Security Group
     default: open-all
+  REMOTE_IP:
+    type: string
+    description: Remote IP prefix to associate with the Security Group rule
+    default: 10.0.2.0/24
 
 resources:
   # セキュリティグループ
@@ -34,11 +38,30 @@ resources:
     type: OS::Neutron::SecurityGroup
     properties:
       name: { get_param: SG_NAME }
+      description: >
+        Security group rule to create
+        Allows connection from remote IP (icmp, tcp22, 80, 443, 3389, 1688, 53, and udp 53)
       rules:
-      - remote_ip_prefix: 0.0.0.0/0
+      - remote_ip_prefix: { get_param: REMOTE_IP }
         protocol: tcp
         port_range_min: 1
         port_range_max: 65535
+      #1 ingress: ICMP/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: icmp }
+      #2 ingress: TCP/SSH/22/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 22, port_range_max: 22}
+      #3 ingress: TCP/HTTP/80/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 80, port_range_max: 80}
+      #4 ingress: TCP/HTTPS/443/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 443, port_range_max: 443}
+      #5 ingress: TCP/RDP/3389/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 3389, port_range_max: 3389}
+      #6 ingress: TCP/KMS/1688/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 1688, port_range_max: 1688}
+      #7 ingress: TCP/DNS/53/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: tcp, port_range_min: 53, port_range_max: 53}
+      #8 ingress: UDP/DNS/53/RemoteIP
+      - { remote_ip_prefix: { get_param: REMOTE_IP }, direction: ingress, protocol: udp, port_range_min: 53, port_range_max: 53}
 
   # キーペア
   key_pair:
