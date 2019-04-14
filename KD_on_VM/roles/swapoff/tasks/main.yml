@@ -3,5 +3,5 @@
 - name: swapoff
   shell: |-
     swapoff -a
-    echo Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    echo Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=systemd" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    #echo Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    #echo Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=systemd" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf

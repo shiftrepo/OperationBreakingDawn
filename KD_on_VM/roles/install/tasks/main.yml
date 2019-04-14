@@ -1,16 +1,20 @@
 ﻿---
 # tasks file for install
 
-- name: upgrade all packages
-  yum: name=* state=latest
-
-- name: yum install packstack
+- name: device-mapper-persistent-data
   yum:
     name:
-      - yum-utils
       - device-mapper-persistent-data
+
+- name: lvm2
+  yum:
+    name:
       - lvm2
-      - docker-ce-18.06.1.ce
+
+- name: doker
+  yum:
+    name:
+      - docker-ce
 
 - name: install kubes
   shell: |-

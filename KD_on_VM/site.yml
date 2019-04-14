@@ -41,7 +41,7 @@
      - servicectl_kubelet
 
 - name: showkubeinfos
-  hosts: nodes
+  hosts: masternode
   roles:
      - showkubeinfos
 
