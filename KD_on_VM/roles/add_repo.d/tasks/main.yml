@@ -2,6 +2,14 @@
 # tasks file for add_repo.da
 # https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html
 
+- name: upgrade all packages
+  yum: name=* state=latest
+
+- name: yum-utils
+  yum:
+    name:
+      - yum-utils
+
 - name: Add prerequisites repo
   yum_repository:
     name: prerequisites
@@ -28,6 +36,10 @@
     src: "{{ role_path }}/files/99-kubernetes-cri.j2"
     dest: /etc/sysctl.d/99-kubernetes-cri.conf
     mode: 0644
+
+- name: yum config add docker repo
+  shell: |-
+    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 - name: docker conf
   copy:
