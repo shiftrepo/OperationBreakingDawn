@@ -1,0 +1,10 @@
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost6 localhost6.localdomain6 localhost6.localdomain
+
+10.0.2.6 kube-master
+10.0.2.8 kube-node
+
+# Ansible inventory hosts BEGIN
+10.0.2.6 kube-master kube-master.cluster.local
+10.0.2.8 kube-node kube-node.cluster.local
+# Ansible inventory hosts END
