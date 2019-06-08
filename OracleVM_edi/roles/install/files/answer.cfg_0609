@@ -76,7 +76,7 @@ CONFIG_CLIENT_INSTALL=y
 
 # Comma-separated list of NTP servers. Leave plain if Packstack
 # should not install ntpd on instances.
-CONFIG_NTP_SERVERS=192.168.10.40
+CONFIG_NTP_SERVERS=192.168.10.138
 
 # Comma-separated list of servers to be excluded from the
 # installation. This is helpful if you are running Packstack a second
@@ -94,7 +94,7 @@ CONFIG_DEBUG_MODE=y
 CONFIG_CONTROLLER_HOST=192.168.10.164
 
 # List the servers on which to install the Compute service.
-CONFIG_COMPUTE_HOSTS=192.168.10.164,192.168.10.165
+CONFIG_COMPUTE_HOSTS=192.168.10.164
 
 # List of servers on which to install the network service such as
 # Compute networking (nova network) or OpenStack Networking (neutron).
@@ -262,9 +262,9 @@ CONFIG_SSL_CERT_SUBJECT_O=openstack
 CONFIG_SSL_CERT_SUBJECT_OU=packstack
 
 # Enter the ssl certificates subject common name.
-CONFIG_SSL_CERT_SUBJECT_CN=master01
+CONFIG_SSL_CERT_SUBJECT_CN=master00.substance
 
-CONFIG_SSL_CERT_SUBJECT_MAIL=admin@master01
+CONFIG_SSL_CERT_SUBJECT_MAIL=admin@master00.substance
 
 # Service to be used as the AMQP broker. Allowed values are: rabbitmq
 # ['rabbitmq']
@@ -865,7 +865,7 @@ CONFIG_NEUTRON_LB_INTERFACE_MAPPINGS=
 # Networking Open vSwitch plugin. Each tuple in the list must be in
 # the format <physical_network>:<ovs_bridge>. Example: physnet1:br-
 # eth1,physnet2:br-eth2,physnet3:br-eth3
-CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex,intnet:br-vlan
+CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex
 
 # Comma-separated list of colon-separated Open vSwitch
 # <bridge>:<interface> pairs. The interface will be added to the
@@ -876,7 +876,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex,intnet:br-vlan
 # issuing the following command: packstack --allinone --os-neutron-
 # ovs-bridge-mappings=ext-net:br-ex --os-neutron-ovs-bridge-interfaces
 # =br-ex:eth0
-CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens192,br-vlan:ens224
+CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens192
 
 # Comma-separated list of Open vSwitch bridges that must be created
 # and connected to interfaces in compute nodes when flat or vlan type
@@ -886,7 +886,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens192,br-vlan:ens224
 # compute=br-vlan --os-neutron-ovs-bridge-mappings="extnet:br-
 # ex,physnet1:br-vlan" --os-neutron-ovs-bridge-interfaces="br-ex:eth1
 # ,br-vlan:eth2"
-CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE=br-vlan
+CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE=
 
 # Name of physical network used for external network when enabling
 # CONFIG_PROVISION_DEMO. Name must be one of the included in
@@ -899,7 +899,7 @@ CONFIG_NEUTRON_OVS_EXTERNAL_PHYSNET=extnet
 # Interface for the Open vSwitch tunnel. Packstack overrides the IP
 # address used for tunnels on this hypervisor to the IP found on the
 # specified interface (for example, eth1).
-CONFIG_NEUTRON_OVS_TUNNEL_IF=ens224
+CONFIG_NEUTRON_OVS_TUNNEL_IF=
 
 # Comma-separated list of subnets (for example,
 # 192.168.10.0/24,192.168.11.0/24) used for sending tunneling packets.
@@ -908,7 +908,7 @@ CONFIG_NEUTRON_OVS_TUNNEL_IF=ens224
 # This is useful when you add existing nodes to EXCLUDE_SERVERS
 # because, in this case, packstack cannot modify the IP filtering of
 # the existing nodes.
-CONFIG_NEUTRON_OVS_TUNNEL_SUBNETS=172.16.107.0/24
+CONFIG_NEUTRON_OVS_TUNNEL_SUBNETS=
 
 # VXLAN UDP port.
 CONFIG_NEUTRON_OVS_VXLAN_UDP_PORT=4789

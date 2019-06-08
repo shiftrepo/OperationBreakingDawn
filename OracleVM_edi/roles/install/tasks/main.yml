@@ -14,6 +14,12 @@
 #  register: answer
 #- debug: var=answer.stdout_lines
 
+- name: Generate answer file
+  template:
+    src=templates/answer.cfg.j2
+    dest={{ role_path }}/files/answer.cfg
+  tags: generateanswer
+
 - name: packstack answer configuration
   shell: |-
     packstack --answer-file="{{ role_path }}/files/answer.cfg"

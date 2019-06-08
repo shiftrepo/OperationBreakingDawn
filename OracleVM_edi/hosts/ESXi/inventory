@@ -2,13 +2,13 @@ all:
   children:
     external:
       children:
-        gateway:
-          hosts:
-            ntp00.shift:
-              ansible_host: 192.168.10.138
         nodes:
           children:
             masternode:
               hosts:
-                master00.shift:
+                master01:
                   ansible_host: 192.168.10.164
+            slavenode:
+              hosts:
+                node01:
+                  ansible_host: 192.168.10.165

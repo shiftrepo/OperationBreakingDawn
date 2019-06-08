@@ -5,11 +5,11 @@
   roles:
      - config_hosts
 
-- name: ntp
-  hosts: gateway
-  strategy: debug
-  roles:
-     - ntp
+#- name: ntp
+#  hosts: gateway
+#  strategy: debug
+#  roles:
+#     - ntp
 
 #- name: gateway setup
 #  hosts: gateway

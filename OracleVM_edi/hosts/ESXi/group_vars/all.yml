@@ -1,0 +1,17 @@
+---
+ansi_local_home: /media/sf_git/shift/Ansible
+all_root_passwd: "!root"
+item:
+  adminpass: openstack
+  fqdn4ssl: control000.shift
+  onenode: 192.168.10.164
+  multinode: 192.168.10.164,192.168.10.165
+  networkbidge: br-ex:ens192,br-vlan:ens224
+  bridgemapping: extnet:br-ex,intnet:br-vlan
+  computebridge: br-vlan
+  tunnelif: ens224
+  tunnelnetwork: 172.16.107.0/24
+  certhost: master01
+  certmail: admin@master01
+  ntpnode: 192.168.10.40
+
