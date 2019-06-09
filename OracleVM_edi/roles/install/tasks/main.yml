@@ -16,7 +16,7 @@
 
 - name: Generate answer file
   template:
-    src=templates/answer.cfg.j2
+    src=templates/{{ item.packstackrelease }}_answer.cfg.j2
     dest={{ role_path }}/files/answer.cfg
   tags: generateanswer
 

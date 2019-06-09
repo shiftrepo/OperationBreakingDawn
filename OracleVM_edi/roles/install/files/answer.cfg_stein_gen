@@ -57,11 +57,11 @@ CONFIG_PANKO_INSTALL=n
 CONFIG_SAHARA_INSTALL=n
 
 # Specify 'y' to install OpenStack Orchestration (heat). ['y', 'n']
-CONFIG_HEAT_INSTALL=y
+CONFIG_HEAT_INSTALL=n
 
 # Specify 'y' to install OpenStack Container Infrastructure
 # Management Service (magnum). ['y', 'n']
-CONFIG_MAGNUM_INSTALL=y
+CONFIG_MAGNUM_INSTALL=n
 
 # Specify 'y' to install OpenStack Database (trove) ['y', 'n']
 CONFIG_TROVE_INSTALL=n
@@ -76,7 +76,7 @@ CONFIG_CLIENT_INSTALL=y
 
 # Comma-separated list of NTP servers. Leave plain if Packstack
 # should not install ntpd on instances.
-CONFIG_NTP_SERVERS=192.168.10.40
+CONFIG_NTP_SERVERS=
 
 # Comma-separated list of servers to be excluded from the
 # installation. This is helpful if you are running Packstack a second
@@ -87,14 +87,14 @@ EXCLUDE_SERVERS=
 
 # Specify 'y' if you want to run OpenStack services in debug mode;
 # otherwise, specify 'n'. ['y', 'n']
-CONFIG_DEBUG_MODE=y
+CONFIG_DEBUG_MODE=n
 
 # Server on which to install OpenStack services specific to the
 # controller role (for example, API servers or dashboard).
 CONFIG_CONTROLLER_HOST=192.168.10.164
 
 # List the servers on which to install the Compute service.
-CONFIG_COMPUTE_HOSTS=192.168.10.164,192.168.10.165
+CONFIG_COMPUTE_HOSTS=192.168.10.164
 
 # List of servers on which to install the network service such as
 # Compute networking (nova network) or OpenStack Networking (neutron).
@@ -323,7 +323,7 @@ CONFIG_KEYSTONE_ADMIN_EMAIL=root@localhost
 CONFIG_KEYSTONE_ADMIN_USERNAME=admin
 
 # Password to use for the Identity service 'admin' user.
-CONFIG_KEYSTONE_ADMIN_PW=openstack
+CONFIG_KEYSTONE_ADMIN_PW=db593777796045d0
 
 # Password to use for the Identity service 'demo' user.
 CONFIG_KEYSTONE_DEMO_PW=ef0adf7a6d124354
@@ -779,7 +779,7 @@ CONFIG_NEUTRON_METADATA_PW=567fe96b729241d3
 
 # Specify 'y' to install OpenStack Networking's Load-Balancing-
 # as-a-Service (LBaaS). ['y', 'n']
-CONFIG_LBAAS_INSTALL=y
+CONFIG_LBAAS_INSTALL=n
 
 # Specify 'y' to install OpenStack Networking's L3 Metering agent
 # ['y', 'n']
@@ -809,7 +809,7 @@ CONFIG_NEUTRON_ML2_TENANT_NETWORK_TYPES=geneve
 # namespace. ['logger', 'test', 'linuxbridge', 'openvswitch',
 # 'hyperv', 'ncs', 'arista', 'cisco_nexus', 'mlnx', 'l2population',
 # 'sriovnicswitch', 'ovn']
-CONFIG_NEUTRON_ML2_MECHANISM_DRIVERS=openvswitch
+CONFIG_NEUTRON_ML2_MECHANISM_DRIVERS=ovn
 
 # Comma-separated list of physical_network names with which flat
 # networks can be created. Use * to allow flat networks with arbitrary
@@ -841,7 +841,7 @@ CONFIG_NEUTRON_ML2_VNI_RANGES=10:100
 
 # Name of the L2 agent to be used with OpenStack Networking.
 # ['linuxbridge', 'openvswitch', 'ovn']
-CONFIG_NEUTRON_L2_AGENT=openvswitch
+CONFIG_NEUTRON_L2_AGENT=ovn
 
 # Comma-separated list of interface mappings for the OpenStack
 # Networking ML2 SRIOV agent. Each tuple in the list must be in the
@@ -859,7 +859,7 @@ CONFIG_NEUTRON_LB_INTERFACE_MAPPINGS=
 # Networking Open vSwitch plugin. Each tuple in the list must be in
 # the format <physical_network>:<ovs_bridge>. Example: physnet1:br-
 # eth1,physnet2:br-eth2,physnet3:br-eth3
-CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex,intnet:br-vlan
+CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex
 
 # Comma-separated list of colon-separated Open vSwitch
 # <bridge>:<interface> pairs. The interface will be added to the
@@ -870,7 +870,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=extnet:br-ex,intnet:br-vlan
 # issuing the following command: packstack --allinone --os-neutron-
 # ovs-bridge-mappings=ext-net:br-ex --os-neutron-ovs-bridge-interfaces
 # =br-ex:eth0
-CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens192,br-vlan:ens224
+CONFIG_NEUTRON_OVS_BRIDGE_IFACES=
 
 # Comma-separated list of Open vSwitch bridges that must be created
 # and connected to interfaces in compute nodes when flat or vlan type
@@ -880,7 +880,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens192,br-vlan:ens224
 # compute=br-vlan --os-neutron-ovs-bridge-mappings="extnet:br-
 # ex,physnet1:br-vlan" --os-neutron-ovs-bridge-interfaces="br-ex:eth1
 # ,br-vlan:eth2"
-CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE=br-vlan
+CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE=
 
 # Name of physical network used for external network when enabling
 # CONFIG_PROVISION_DEMO. Name must be one of the included in
@@ -1157,7 +1157,7 @@ CONFIG_SWIFT_STORAGE_SIZE=2G
 
 # Password used by Orchestration service user to authenticate against
 # the database.
-CONFIG_HEAT_DB_PW=a099835193084fc9
+CONFIG_HEAT_DB_PW=PW_PLACEHOLDER
 
 # Encryption key to use for authentication in the Orchestration
 # database (16, 24, or 32 chars).
@@ -1165,7 +1165,7 @@ CONFIG_HEAT_AUTH_ENC_KEY=a9bd41717b054362
 
 # Password to use for the Orchestration service to authenticate with
 # the Identity service.
-CONFIG_HEAT_KS_PW=71fe72abab6a4442
+CONFIG_HEAT_KS_PW=PW_PLACEHOLDER
 
 # Specify 'y' to install the Orchestration CloudFormation API. ['y',
 # 'n']
@@ -1179,7 +1179,7 @@ CONFIG_HEAT_DOMAIN_ADMIN=heat_admin
 
 # Password for the Identity domain administrative user for
 # Orchestration.
-CONFIG_HEAT_DOMAIN_PASSWORD=42829f23da7b480a
+CONFIG_HEAT_DOMAIN_PASSWORD=PW_PLACEHOLDER
 
 # Specify 'y' to provision for demo usage and testing. ['y', 'n']
 CONFIG_PROVISION_DEMO=y
@@ -1352,8 +1352,8 @@ CONFIG_SAHARA_DB_PW=PW_PLACEHOLDER
 CONFIG_SAHARA_KS_PW=PW_PLACEHOLDER
 
 # Password to use for the Magnum to access the database.
-CONFIG_MAGNUM_DB_PW=a18a235f7e3a46af
+CONFIG_MAGNUM_DB_PW=PW_PLACEHOLDER
 
 # Password to use for the Magnum to authenticate with the Identity
 # service.
-CONFIG_MAGNUM_KS_PW=3485d89355af40d3
+CONFIG_MAGNUM_KS_PW=PW_PLACEHOLDER
