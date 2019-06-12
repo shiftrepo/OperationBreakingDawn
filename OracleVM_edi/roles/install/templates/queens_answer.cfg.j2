@@ -94,7 +94,7 @@ CONFIG_DEBUG_MODE=y
 CONFIG_CONTROLLER_HOST={{ item.onenode }}
 
 # List the servers on which to install the Compute service.
-CONFIG_COMPUTE_HOSTS={{ item.multinode}}
+CONFIG_COMPUTE_HOSTS={{ item.multinode }}
 
 # List of servers on which to install the network service such as
 # Compute networking (nova network) or OpenStack Networking (neutron).
@@ -341,7 +341,7 @@ CONFIG_KEYSTONE_TOKEN_FORMAT=FERNET
 CONFIG_KEYSTONE_IDENTITY_BACKEND=sql
 
 # URL for the Identity service LDAP backend.
-CONFIG_KEYSTONE_LDAP_URL=ldap://{{ item.onenode  }}
+CONFIG_KEYSTONE_LDAP_URL=ldap://{{ item.onenode }}
 
 # User DN for the Identity service LDAP backend.  Used to bind to the
 # LDAP server if the LDAP server does not allow anonymous
