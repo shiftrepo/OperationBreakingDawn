@@ -880,7 +880,7 @@ CONFIG_NEUTRON_OVS_BRIDGE_IFACES={{ item.networkbidge }}
 # compute=br-vlan --os-neutron-ovs-bridge-mappings="extnet:br-
 # ex,physnet1:br-vlan" --os-neutron-ovs-bridge-interfaces="br-ex:eth1
 # ,br-vlan:eth2"
-CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE={{ item.computebridge }}
+CONFIG_NEUTRON_OVS_BRIDGES_COMPUTE=
 
 # Name of physical network used for external network when enabling
 # CONFIG_PROVISION_DEMO. Name must be one of the included in
@@ -893,7 +893,7 @@ CONFIG_NEUTRON_OVS_EXTERNAL_PHYSNET=extnet
 # Interface for the Open vSwitch tunnel. Packstack overrides the IP
 # address used for tunnels on this hypervisor to the IP found on the
 # specified interface (for example, eth1).
-CONFIG_NEUTRON_OVS_TUNNEL_IF=
+CONFIG_NEUTRON_OVS_TUNNEL_IF={{ item.tunnelif }}
 
 # Comma-separated list of subnets (for example,
 # 192.168.10.0/24,192.168.11.0/24) used for sending tunneling packets.
@@ -1182,7 +1182,7 @@ CONFIG_HEAT_DOMAIN_ADMIN=heat_admin
 CONFIG_HEAT_DOMAIN_PASSWORD=PW_PLACEHOLDER
 
 # Specify 'y' to provision for demo usage and testing. ['y', 'n']
-CONFIG_PROVISION_DEMO=y
+CONFIG_PROVISION_DEMO=n
 
 # Specify 'y' to configure the OpenStack Integration Test Suite
 # (tempest) for testing. The test suite requires OpenStack Networking
