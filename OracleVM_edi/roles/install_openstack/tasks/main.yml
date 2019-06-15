@@ -56,8 +56,8 @@
     name:
       - openstack-packstack
       - openstack-utils
-      - openstack-heat-*
-      - python-heatclient
+#      - openstack-heat-*
+#      - python-heatclient
 #      - openstack-magnum-api
 #      - openstack-magnum-common
 #      - openstack-magnum-conductor

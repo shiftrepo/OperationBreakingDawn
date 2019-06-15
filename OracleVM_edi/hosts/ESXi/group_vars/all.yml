@@ -14,5 +14,5 @@ item:
   certhost: master01
   certmail: admin@master01
   ntpnode: 192.168.10.40
-  packstackrelease: stein
+  packstackrelease: queens
 
