@@ -903,7 +903,7 @@ CONFIG_NEUTRON_OVS_TUNNEL_IF={{ item.tunnelif }}
 # This is useful when you add existing nodes to EXCLUDE_SERVERS
 # because, in this case, packstack cannot modify the IP filtering of
 # the existing nodes.
-CONFIG_NEUTRON_OVS_TUNNEL_SUBNETS=
+CONFIG_NEUTRON_OVS_TUNNEL_SUBNETS={{ item.tunnelnetwork }}
 
 # VXLAN UDP port.
 CONFIG_NEUTRON_OVS_VXLAN_UDP_PORT=4789
