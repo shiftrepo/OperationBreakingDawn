@@ -1,0 +1,30 @@
+---
+# tasks file for python
+- hosts: localhost
+  tasks:
+    - name: yum install repo
+      yum:
+        name:
+          - python-devel
+          - python-pip
+#shadeでエラーになるため依存関係を整理
+#あいかわらずいかついな。。。python
+    - name: pip require
+      pip:
+        name:
+          - eventlet==0.19.0
+          - pystache>=0.5.4
+          - lxml>=3.4.1
+
+    - name: pip require
+      pip:
+        name:
+#      - netmiko>=2.2.0
+#      - ncclient==0.6.0
+#      - requests
+#          - paramiko
+#          - PyYAML
+#          - Jinja2
+#          - httplib2
+          - shade
+        state: latest

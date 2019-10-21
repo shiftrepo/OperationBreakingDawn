@@ -1,0 +1,16 @@
+all:
+  children:
+    theylive:
+      children:
+        ad:
+          hosts:
+            GALAXY.ad.shift.com:
+              ansible_host: 192.168.10.111
+        servers:
+          children:
+            ESXis:
+              children:
+                repository:
+                  hosts:
+                    repository.ad.shift.com:
+                      ansible_host: 192.168.10.165

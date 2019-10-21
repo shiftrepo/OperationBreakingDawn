@@ -1,0 +1,32 @@
+---
+#- name: packstack install
+#  shell: |-
+#    packstack --install-host={{ item.multinode }}
+#- name: set ansible_python_interpreter
+#  set_fact: ansible_python_interpreter="/root/.virtualenvs/ansible/bin/python3"
+
+#- name: packstack answer configuration
+#  expect:
+#    command: packstack --answer-file="{{ role_path }}/files/answers.cfg"
+#    responses:
+#      "root@10.0.2.6.* password.*": "{{ all_root_passwd }}"
+#      "root@10.0.2.8.* password.*": "{{ all_root_passwd }}"
+#  register: answer
+#- debug: var=answer.stdout_lines
+
+- name: Generate answer file
+  template:
+    src=templates/{{ item.packstackrelease }}_answer.cfg.j2
+    dest={{ role_path }}/files/answer.cfg
+  tags: generateanswer
+
+- name: packstack answer configuration
+  shell: |-
+    packstack --answer-file="{{ role_path }}/files/answer.cfg"
+  register: answer
+- debug: var=answer.stdout_lines
+
+#- name: add br-ex to neutron ini
+#  shell: |-
+#    sed -i -e 's/#external_network_bridge =/external_network_bridge = br-ex/g' /etc/neutron/l3_agent.ini
+#    sed -i -e 's/After=network-pre.target ovsdb-server.service ovs-vswitchd.service/After=network-pre.target ovsdb-server.service ovs-vswitchd.service NetworkManager.service/g' /usr/lib/systemd/system/openvswitch.service

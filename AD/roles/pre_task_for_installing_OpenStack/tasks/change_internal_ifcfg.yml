@@ -1,0 +1,15 @@
+---
+- hosts: external
+  tasks:
+  - name: change network ifcfg
+    shell: |-
+      nmcli c modify enp0s9 ipv4.addresses "{{ internal_ip }}"/24 
+      nmcli c down enp0s9
+      nmcli c up enp0s9
+  - name: firewalld
+    shell: |-
+      firewall-cmd --zone=public --add-port=123/udp --permanent
+      firewall-cmd --reload
+#  - name: "dump variables vars"
+#    debug: var=vars
+
