@@ -4,3 +4,5 @@
 ansi_local_home: /media/sf_git/OperationBreakingDawn/
 domain: SHIFT
 realm: ad.shift.com
+upperrealm: AD.SHIFT.COM
+hostname: GALAXY.ad.shift.com

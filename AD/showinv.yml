@@ -12,4 +12,4 @@
    - debug: msg="some_junk={{ some_var | to_nice_json }}"
    - debug: msg="{{ groups.ad }}"
    - debug: msg="{{ hostvars['GALAXY.ad.shift.com']['ansible_host'] }}"
-   - debug: msg="{{ hostvars['"{{ host_name }}"']['ansible_host'] }}"
+   - debug: msg="{{ hostvars["{{ groups.ad.item }}"]['ansible_host'] }}"

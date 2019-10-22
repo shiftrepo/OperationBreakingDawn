@@ -32,6 +32,12 @@
   roles:
      - yum
 
+- name: authcom
+  hosts: repository
+  roles:
+     - authcom
+
+
 #- name: install_openstack
 #  hosts: nodes
 #  roles:
