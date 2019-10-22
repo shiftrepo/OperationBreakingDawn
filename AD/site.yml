@@ -27,6 +27,11 @@
   roles:
      - setting_network
 
+- name: yum
+  hosts: repository
+  roles:
+     - yum
+
 #- name: install_openstack
 #  hosts: nodes
 #  roles:

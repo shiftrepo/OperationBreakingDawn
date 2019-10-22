@@ -8,7 +8,7 @@
 #    nmcli c up ens35
 
 - name: install needed network manager libs
-  package:
+  yum:
     name:
       - NetworkManager-glib
       - nm-connection-editor
