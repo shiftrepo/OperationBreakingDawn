@@ -1,6 +1,6 @@
 ﻿---
 - name: Internal config hosts
-  hosts: external
+  hosts: repository
   gather_facts: False
   roles:
      - config_hosts
@@ -17,28 +17,28 @@
 #     - ntp
 #     - dns
 
-- name: pre task for installing OpenStack
-  hosts: external
-  roles:
-     - pre_task_for_installing_OpenStack
+#- name: pre task for installing OpenStack
+#  hosts: external
+#  roles:
+#     - pre_task_for_installing_OpenStack
 
 - name: setting_network
-  hosts: nodes
+  hosts: repository
   roles:
      - setting_network
 
-- name: install_openstack
-  hosts: nodes
-  roles:
-     - install_openstack
+#- name: install_openstack
+#  hosts: nodes
+#  roles:
+#     - install_openstack
 
 #- name: create_SSHkey_for_root
 #  hosts: masternode
 #  roles:
 #     - create_SSHkey_for_root
 
-- name: openstack install
-  hosts: masternode
-  strategy: debug
-  roles:
-     - install
+#- name: openstack install
+#  hosts: masternode
+#  strategy: debug
+#  roles:
+#     - install

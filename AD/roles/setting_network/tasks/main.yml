@@ -6,6 +6,23 @@
 #    nmcli c modify ens35 ipv4.addresses {{ hostvars.ansible_host }}/24 
 #    nmcli c down ens35
 #    nmcli c up ens35
+
+- name: install needed network manager libs
+  package:
+    name:
+      - NetworkManager-glib
+      - nm-connection-editor
+      - libsemanage-python
+      - policycoreutils-python
+    state: present
+
+- name: Add two IPv4 DNS server addresses
+  nmcli:
+    conn_name: ens192
+    type: ethernet
+    dns4: "{{ hostvars['GALAXY.ad.shift.com']['ansible_host'] }}"
+    dns4_search: "{{ hostvars['GALAXY.ad.shift.com']['realm'] }}" 
+    state: present
     
 #- name: firewalld
 #  shell: |-
@@ -14,17 +31,17 @@
 #    
 #    FirewallD is not running
 # tasks file for install
-- name: Stop NetworkManager
-  systemd:
-    state: stopped
-    name: NetworkManager
+#- name: Stop NetworkManager
+#  systemd:
+#    state: stopped
+#    name: NetworkManager
 
-- name: disable service NetworkManager
-  systemd:
-    name: NetworkManager
-    enabled: no
+#- name: disable service NetworkManager
+#  systemd:
+#    name: NetworkManager
+#    enabled: no
 
-- name: Restart network
-  systemd:
-    state: restarted
-    name: network
+#- name: Restart network
+#  systemd:
+#    state: restarted
+#    name: network

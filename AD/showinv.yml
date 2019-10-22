@@ -1,0 +1,15 @@
+---
+- name: test variables
+  hosts: repository
+  vars:
+    - some_var: "somevar"
+    - host_name: "{{ groups.ad  }}"
+#  gather_facts: no
+  tasks:
+#   - debug: msg="hostvars={{ hostvars | to_nice_json }}"
+#   - debug: msg="vars={{ vars | to_nice_json }}"
+   - debug: msg="groups={{ groups | to_nice_json }}"
+   - debug: msg="some_junk={{ some_var | to_nice_json }}"
+   - debug: msg="{{ groups.ad }}"
+   - debug: msg="{{ hostvars['GALAXY.ad.shift.com']['ansible_host'] }}"
+   - debug: msg="{{ hostvars['"{{ host_name }}"']['ansible_host'] }}"
