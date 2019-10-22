@@ -16,9 +16,10 @@
            --krb5realm="{{ hostvars['GALAXY.ad.shift.com']['realm'] }}" \
            --enablewinbind \
            --enablewinbindauth \
-           --winbindtemplatehomedir=/home/${HomeDirDomain}/%U \
            --enablemkhomedir \
            --update
+
+#           --winbindtemplatehomedir=/home/${HomeDirDomain}/%U \
 
 - name: edit smb config
   vars:
