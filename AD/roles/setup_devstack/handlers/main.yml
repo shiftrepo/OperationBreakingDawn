@@ -1,6 +1,0 @@
----
-# handlers file for setup_devstack
-- name: restart ssh
-  service:
-    name: sshd
-    state: restarted

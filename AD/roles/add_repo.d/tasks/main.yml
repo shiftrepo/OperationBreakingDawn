@@ -1,9 +1,0 @@
----
-# tasks file for add_repo.da
-# https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html
-
-- name: Add repository fedora copr openstacl-magnum for centos
-  yum_repository:
-    name: epel
-    description: openstack magnum epel
-    baseurl: https://copr.fedorainfracloud.org/coprs/sdake/openstack-magnum/repo/epel-7/sdake-openstack-magnum-epel-7.repo

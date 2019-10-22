@@ -1,8 +1,0 @@
----
-# handlers file for ntp
-- name: Start ntpd
-  service:
-    name: ntpd
-    state: started
-    enabled: yes
-
