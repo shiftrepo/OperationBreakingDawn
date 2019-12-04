@@ -4,13 +4,14 @@ all:
       children:
         ad:
           hosts:
-            GALAXY.ad.shift.com:
-              ansible_host: 192.168.10.111
+            dcshift.shift.com:
+              ansible_host: 192.168.100.120
         servers:
           children:
             ESXis:
               children:
                 repository:
                   hosts:
-                    repository.ad.shift.com:
-                      ansible_host: 192.168.10.57
+                    service.shift.com:
+                      ansible_host: 192.168.100.122
+

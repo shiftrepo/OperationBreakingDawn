@@ -1,0 +1,34 @@
+- hosts: 127.0.0.1
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: ls
+      shell: ls -ld $(find "{{ getPath }}") | awk '{print $9}'
+      register: regi
+      changed_when: false
+      failed_when: false
+
+    - name: ls debug
+      debug: var=regi
+
+    - name: check test
+      stat: 
+        path: "{{ lineitem }}"
+      with_items: "{{ regi.stdout_lines }}"
+      loop_control:
+        loop_var: lineitem
+      register: result
+      changed_when: false
+      failed_when: false
+
+    - name: debug
+      debug: var=result
+
+#      loop:
+#        - name: ls
+#          shell: ls -ld $(find /root/OperationBreakingDawn/AD) | awk '{print $9}'
+#          changed_when: false
+#          failed_when: false
+#      loop_control:
+#        label: "{{ item.lis }}"

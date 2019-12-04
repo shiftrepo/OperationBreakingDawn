@@ -3,6 +3,6 @@
 #internal_ip: 172.16.107.10
 ansi_local_home: /media/sf_git/OperationBreakingDawn/
 domain: SHIFT
-realm: ad.shift.com
-upperrealm: AD.SHIFT.COM
-hostname: GALAXY.ad.shift.com
+realm: shift.com
+upperrealm: SHIFT.COM
+hostname: dcshift.shift.com

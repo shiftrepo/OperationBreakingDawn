@@ -1,0 +1,13 @@
+- hosts: 127.0.0.1
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: check test
+      stat:
+        path: "/tmp"
+      register: result
+
+    - name: debug
+      debug: var=result
+

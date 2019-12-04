@@ -1,0 +1,12 @@
+---
+#- hosts: 127.0.0.1
+#  connection: local
+#  tasks:
+    - name: ls dir
+      shell: ls -U /root/OperationBreakingDawn/AD
+      register: file_list
+#    - name: stat file in dir
+#      shell: stat {{ item }}
+#      register: stat_list
+#      with_items: file_list.stdout_lines
+#    - debug: var=stat_list

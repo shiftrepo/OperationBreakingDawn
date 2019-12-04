@@ -20,8 +20,8 @@
   nmcli:
     conn_name: ens192
     type: ethernet
-    dns4: "{{ hostvars['GALAXY.ad.shift.com']['ansible_host'] }}"
-    dns4_search: "{{ hostvars['GALAXY.ad.shift.com']['realm'] }}" 
+    dns4: "{{ hostvars['dcshift.shift.com']['ansible_host'] }}"
+    dns4_search: "{{ hostvars['dcshift.shift.com']['realm'] }}" 
     state: present
     
 #- name: firewalld
