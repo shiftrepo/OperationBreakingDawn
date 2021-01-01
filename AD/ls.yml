@@ -1,0 +1,13 @@
+---
+- hosts: repository
+  gather_facts: no
+  tasks:
+  - name: ls
+    shell: ll -d $(find /root/OperationBreakingDawn/AD) | awk '{print $9}'
+    register: register
+    changed_when: false
+    failed_when: false
+  - file: path="{{ item }}"
+          state=absent
+    with_items: register.stdout_lines
+

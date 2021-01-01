@@ -1,0 +1,37 @@
+---
+- name: authconfig
+  command: authconfig \
+           --enablewinbind \
+           --enablewinbindauth \
+           --smbsecurity=ads \
+           --smbworkgroup="{{ hostvars['dcshift.shift.com']['domain'] }}" \
+           --smbrealm="{{ hostvars['dcshift.shift.com']['upperrealm'] }}" \
+           --smbservers="{{ hostvars['dcshift.shift.com']['hostname'] }}" \ 
+           --enablewinbindusedefaultdomain \
+           --winbindtemplateshell=/bin/bash \
+           --enablelocauthorize \
+           --enablekrb5 \
+           --krb5kdc="{{ hostvars['dcshift.shift.com']['hostname'] }}" \
+           --krb5adminserver="{{ hostvars['dcshift.shift.com']['hostname'] }}" \
+           --krb5realm="{{ hostvars['dcshift.shift.com']['realm'] }}" \
+           --enablewinbind \
+           --enablewinbindauth \
+           --enablemkhomedir \
+           --update
+
+#           --winbindtemplatehomedir=/home/${HomeDirDomain}/%U \
+
+- name: edit smb config
+  vars:
+    target_file: /etc/samba/smb.conf
+  command: sed -i '/winbind use default domain/s/false/true/g' "{{ target_file }}"
+
+- name: Restart service winbind, in all cases
+  service:
+    name: winbind
+    state: restarted
+
+- name: Restart service smb, in all cases
+  service:
+    name: smb
+    state: restarted

@@ -1,0 +1,17 @@
+all:
+  children:
+    theylive:
+      children:
+        ad:
+          hosts:
+            dcshift.shift.com:
+              ansible_host: 192.168.100.120
+        servers:
+          children:
+            ESXis:
+              children:
+                repository:
+                  hosts:
+                    service.shift.com:
+                      ansible_host: 192.168.100.122
+

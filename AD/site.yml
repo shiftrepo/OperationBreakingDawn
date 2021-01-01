@@ -1,0 +1,22 @@
+﻿---
+- name: Internal config hosts
+  hosts: repository
+  gather_facts: False
+  roles:
+     - config_hosts
+
+#- name: setting_network
+#  hosts: repository
+#  roles:
+#     - setting_network
+
+- name: yum
+  hosts: repository
+  roles:
+     - yum
+
+- name: authcom
+  hosts: repository
+  roles:
+     - authcom
+

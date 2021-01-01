@@ -1,0 +1,23 @@
+---
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: install software to need
+  yum:
+    name:
+      - samba
+      - samba-winbind
+      - samba-common
+      - samba-client
+      - krb5-libs
+      - pam_krb5
+      - realmd
+      - sssd
+      - oddjob
+      - oddjob-mkhomedir
+      - adcli
+      - samba-winbind-clients
+    state: present
+

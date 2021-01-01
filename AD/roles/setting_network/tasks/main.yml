@@ -1,0 +1,47 @@
+---
+# tasks file for setting_network
+    
+#- name: change network ifcfg
+#  shell: |-
+#    nmcli c modify ens35 ipv4.addresses {{ hostvars.ansible_host }}/24 
+#    nmcli c down ens35
+#    nmcli c up ens35
+
+- name: install needed network manager libs
+  yum:
+    name:
+      - NetworkManager-glib
+      - nm-connection-editor
+      - libsemanage-python
+      - policycoreutils-python
+    state: present
+
+- name: Add two IPv4 DNS server addresses
+  nmcli:
+    conn_name: ens192
+    type: ethernet
+    dns4: "{{ hostvars['dcshift.shift.com']['ansible_host'] }}"
+    dns4_search: "{{ hostvars['dcshift.shift.com']['realm'] }}" 
+    state: present
+    
+#- name: firewalld
+#  shell: |-
+#    firewall-cmd --zone=public --add-port=123/udp --permanent
+#    firewall-cmd --reload
+#    
+#    FirewallD is not running
+# tasks file for install
+#- name: Stop NetworkManager
+#  systemd:
+#    state: stopped
+#    name: NetworkManager
+
+#- name: disable service NetworkManager
+#  systemd:
+#    name: NetworkManager
+#    enabled: no
+
+#- name: Restart network
+#  systemd:
+#    state: restarted
+#    name: network
