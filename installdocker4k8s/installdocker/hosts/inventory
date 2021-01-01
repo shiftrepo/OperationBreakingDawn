@@ -1,0 +1,14 @@
+all:
+  children:
+    k8s:
+      children:
+        controll:
+          hosts:
+            controll.k8s.os.shift.com:
+              ansible_host: 192.168.100.40
+        workers:
+          children:
+            worker01:
+              hosts:
+                worker.k8s.os.shift.com:
+                  ansible_host: 192.168.100.60
