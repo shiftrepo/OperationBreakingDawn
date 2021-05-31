@@ -1,4 +1,4 @@
-<mxfile modified="2021-05-31T06:19:15.653Z" host="app.diagrams.net" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15" etag="dxYxmUbgor9q4r4XtYln" version="14.7.3" type="github">
+<mxfile modified="2021-05-31T07:10:47.684Z" host="app.diagrams.net" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15" etag="kRzPFrW2OvBbKJAJPQuf" version="14.7.3" type="github">
   <diagram name="Page-1" id="197159a0-c6a4-9194-75a8-e4174976684c">
     <mxGraphModel dx="3785" dy="886" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1654" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -472,12 +472,12 @@
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-108" value="" style="shape=link;html=1;" edge="1" parent="1">
           <mxGeometry width="100" relative="1" as="geometry">
-            <mxPoint x="-1420" y="848" as="sourcePoint" />
+            <mxPoint x="-1560" y="848" as="sourcePoint" />
             <mxPoint x="-150" y="848" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cCAjc8YfBACK6hqS6SB_-110" value="&lt;h1&gt;内製協働開発環境想定図&lt;/h1&gt;&lt;p&gt;１．環境概要&lt;/p&gt;&lt;p&gt;　クラウドおよびオンプレミスを利用した内製共同開発の環境想定図を図示する。大まかな考え方としては、下記の通りである。&lt;/p&gt;&lt;p&gt;（１）クラウド&lt;/p&gt;&lt;p&gt;　協働開発する場である。Dockerのコンテナ開発とコンテナイメージをDocker Registoryに格納する。インターネットに接続可能であり、コンテナを構成する各種イメージを収集する。GitLabはコンテナに対する変更のみを取り扱う。一旦の仮説利用法であり、開発を通して利用方法を精査する。&lt;/p&gt;&lt;p&gt;（２）オンプレミス&lt;/p&gt;&lt;p&gt;　クラウドで開発されたコンテナをKubernetesを利用し、テストおよび本番運用する。DockerのBuild,Ship,Runを利用し、インターネットに接続不能なオンプレミスでコンテナを稼働させる。Talend Open Studio（以下TOS）で作成したジョブは、コンテナ化して同様に稼働させる。GitLabについては、クラウド；コンテナ資産、オンプレミス：Kubernetesほか環境や運用をスコープとするが、上述通り開発を通して調整する。&lt;/p&gt;&lt;p&gt;２．段階作成&lt;/p&gt;&lt;p&gt;構築の段階別に枠組みを囲う。&lt;/p&gt;&lt;p&gt;（１）第一段階&lt;/p&gt;&lt;p&gt;　クラウド接続用の端末を利用し、Talendジョブを作成できる環境を作成する。該当PCはlocalhost接続可能であれば、TOSに同伴されているkarafを利用し、WebAPIのMock他が容易となる。&lt;/p&gt;&lt;p&gt;（２）第二段階&lt;/p&gt;&lt;p&gt;　第一段階に加えオンプレミスの環境を整備する。Dockerのイメージがインターネットで生成できないため、Kubernetes上で稼働させられるコンテナは、オフラインで生成可能なイメージのみとなる。&lt;/p&gt;&lt;p&gt;（３）第三段階&lt;/p&gt;&lt;p&gt;　第二段階に加え、クラウドの環境を整備する。クラウドで利用できるリソースは最低ラインとして考慮する。スケールアウト、アップが可能である場合は、なるべくオンプレミスに近づける。&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=bottom;" vertex="1" parent="1">
-          <mxGeometry x="-2403.13" y="44.47" width="1253.13" height="510" as="geometry" />
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-110" value="&lt;h1&gt;内製協働開発環境想定図&lt;/h1&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;１．環境概要&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　クラウドおよびオンプレミスを利用した内製共同開発の環境想定図を図示する。大まかな考え方としては、下記の通りである。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;（１）クラウド&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　協働開発する場である。Dockerのコンテナ開発とコンテナイメージをDocker Registoryに格納する。インターネットに接続可能であり、コンテナを構成する各種イメージを収集する。GitLabはコンテナに対する変更のみを取り扱う。一旦の仮説利用法であり、開発を通して利用方法を精査する。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;（２）オンプレミス&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　クラウドで開発されたコンテナをKubernetesを利用し、テストおよび本番運用する。DockerのBuild,Ship,Runを利用し、インターネットに接続不能なオンプレミスでコンテナを稼働させる。Talend Open Studio（以下TOS）で作成したジョブは、コンテナ化して同様に稼働させる。GitLabについては、クラウド；コンテナ資産、オンプレミス：Kubernetesほか環境や運用をスコープとするが、上述通り開発を通して調整する。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;２．段階作成&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;構築の段階別に枠組みを囲う。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;（１）第一段階&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　クラウド接続用の端末を利用し、Talendジョブを作成できる環境を作成する。該当PCはlocalhost接続可能であれば、TOSに同伴されているkarafを利用し、WebAPIのMock他が容易となる。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;（２）第二段階&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　第一段階に加えオンプレミスの環境を整備する。Dockerのイメージがインターネットで生成できないため、Kubernetes上で稼働させられるコンテナは、オフラインで生成可能なイメージのみとなる。&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;（３）第三段階&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 13px&quot;&gt;&lt;font style=&quot;font-size: 13px&quot;&gt;　第二段階に加え、クラウドの環境を整備する。クラウドで利用できるリソースは最低ラインとして考慮する。スケールアウト、アップが可能である場合は、なるべくオンプレミスに近づける。&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="-2403.13" y="30" width="1253.13" height="524.47" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=23;" edge="1" parent="1" source="cCAjc8YfBACK6hqS6SB_-114" target="zVgAzkZR-FTV_eOpLG_5-31">
           <mxGeometry relative="1" as="geometry">
@@ -491,34 +491,166 @@
           <mxGeometry x="-1490" y="1534" width="49.03" height="40" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-116" value="主なソフトウェア利用" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fontStyle=1;align=center;fontSize=23;" vertex="1" parent="1">
-          <mxGeometry x="-2390" y="668" width="940" height="392" as="geometry" />
+          <mxGeometry x="-2403.13" y="590" width="820" height="928" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-117" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
-          <mxGeometry y="30" width="940" height="120" as="geometry" />
+          <mxGeometry y="30" width="820" height="54" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-118" value="VirtualBox or ESXi" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-117">
-          <mxGeometry width="290" height="120" as="geometry" />
+          <mxGeometry width="148" height="54" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-119" value="仮想技術を提供する。VirtualBoxを利用する前提で作業を進める。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-117">
-          <mxGeometry x="290" width="650" height="120" as="geometry" />
+          <mxGeometry x="148" width="672" height="54" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-121" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
-          <mxGeometry y="150" width="940" height="122" as="geometry" />
+          <mxGeometry y="84" width="820" height="53" as="geometry" />
         </mxCell>
-        <mxCell id="cCAjc8YfBACK6hqS6SB_-122" value="Kubernetes" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-121">
-          <mxGeometry width="290" height="122" as="geometry" />
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-122" value="Kubernetes&lt;br&gt;K8s" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-121">
+          <mxGeometry width="148" height="53" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-123" value="コンテナの稼働を管理する。IPおよびPodの管理を担う。マイクロサービスを前提としたコンテナ開発となるので、PodおよびIPの管理が重要となる。ローリングアップデートも採用する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-121">
-          <mxGeometry x="290" width="650" height="122" as="geometry" />
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-125" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
-          <mxGeometry y="272" width="940" height="120" as="geometry" />
+          <mxGeometry y="137" width="820" height="54" as="geometry" />
         </mxCell>
         <mxCell id="cCAjc8YfBACK6hqS6SB_-126" value="Docker" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-125">
-          <mxGeometry width="290" height="120" as="geometry" />
+          <mxGeometry width="148" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="cCAjc8YfBACK6hqS6SB_-127" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-125">
-          <mxGeometry x="290" width="650" height="120" as="geometry" />
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-127" value="アプリケーションおよびミドルウェアをコンテナ化するために利用する。オフラインで利用するため、Dockerfileではなく、イメージで管理する。DockerfileはGitで構成資産として管理する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-125">
+          <mxGeometry x="148" width="672" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-129" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="191" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-130" value="Docker Registory" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-129">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-131" value="コンテナのイメージをオフラインで利用するために、イメージリポジトリとして利用する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-129">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-138" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="244" width="820" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-139" value="Talend Open Studio&lt;br&gt;TOS" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-138">
+          <mxGeometry width="148" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-140" value="Row CodeでのETLツールとして、利用する。WebAPI、DBのMockほかテストデータの生成や投入支援に利用する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-138">
+          <mxGeometry x="148" width="672" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-135" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="296" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-136" value="Karaf" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-135">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-137" value="TOSで生成したジョブを稼働させるため、OSGiに基づいた実行環境を提供する。TOSのジョブもコンテナ化によりマイクロサービスの一部を構成する。もしくは、K8sのCronJobにて時間実行し、オンプレミス環境で自動実行を可能とする。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-135">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-162" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="349" width="820" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-163" value="AWX" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-162">
+          <mxGeometry width="148" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-164" value="Red Hat Ansible TowerのOSS版である。該当環境の構築および管理はAnsibleにより環境構築の自動化とコード化を図る。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-162">
+          <mxGeometry x="148" width="672" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-159" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="401" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-160" value="Rancher" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-159">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-161" value="K8sの構築に利用する。K8sのクラスタ状況の確認や管理に利用する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-159">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-156" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="454" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-157" value="GitLab" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-156">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-158" value="構成管理、チケット駆動開発およびGitLabRunnerによりCI/CDを実現する。Gitリポジトリのホスティングサービスを提供する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-156">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-153" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="507" width="820" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-154" value="OpenLdap" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-153">
+          <mxGeometry width="148" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-155" value="各種管理ソフトウェアを利用するためのユーザを管理する。基幹システムと連動しないため、独自管理とする。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-153">
+          <mxGeometry x="148" width="672" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-150" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="559" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-151" value="HAProxy" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-150">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-152" value="リバースプロキシおよびロードバランシングを提供する。K8sのIngressにてURIの名前解決を実施し、NodePortへの接続を仲介する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-150">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-147" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="612" width="820" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-148" value="glusterFS" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-147">
+          <mxGeometry width="148" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-149" value="K8sのワーカーホストに分散レプリカストレージを構築し、冗長化とDISK参照性能を向上させる。また、&lt;br&gt;K8sへPVを提供する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-147">
+          <mxGeometry x="148" width="672" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-144" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="664" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-145" value="Pod内" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-144">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-146" value="マイクロサービスアーキテクチャに基づき、各種ソフトウェアを利用し、Podを構成する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-144">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-165" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="717" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-166" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;Amazon Elastic Compute Cloud (Amazon&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-weight: bold ; color: rgb(95 , 99 , 104) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left&quot;&gt;EC2&lt;/span&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;)&lt;/span&gt;&lt;/font&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-165">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-167" value="仮想Compute技術を提供する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-165">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-168" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="770" width="820" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-169" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;span style=&quot;font-weight: bold ; color: rgb(95 , 99 , 104) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left&quot;&gt;Amazon&lt;/span&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;&amp;nbsp;Simple Storage Service（&lt;/span&gt;&lt;span style=&quot;font-weight: bold ; color: rgb(95 , 99 , 104) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left&quot;&gt;Amazon S3&lt;/span&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;）&lt;/span&gt;&lt;/font&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-168">
+          <mxGeometry width="148" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-170" value="バケットと呼ばれるオブジェクトストレージを提供する。Docker Registoryほかクラウドとオンプレミス間のファイル移動に利用する。ファイル移動は、S3のみを通して実現する。SFTPやSSHは利用しない。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-168">
+          <mxGeometry x="148" width="672" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-171" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="822" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-172" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;Amazon Elastic Block Store (&lt;/span&gt;&lt;span style=&quot;font-weight: bold ; color: rgb(95 , 99 , 104) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left&quot;&gt;EBS&lt;/span&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;)&amp;nbsp;&lt;/span&gt;&lt;/font&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-171">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-173" value="主にコンテナのデータや設定ファイルを格納するVolumeとして利用する。ソフトウェアを構成するアプリケーション群とデータ格納領域は分ける。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-171">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-174" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-116">
+          <mxGeometry y="875" width="820" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-175" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;Amazon Virtual Private Cloud (Amazon&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-weight: bold ; color: rgb(95 , 99 , 104) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left&quot;&gt;VPC&lt;/span&gt;&lt;span style=&quot;color: rgb(77 , 81 , 86) ; font-family: &amp;#34;arial&amp;#34; , sans-serif ; text-align: left ; background-color: rgb(255 , 255 , 255)&quot;&gt;)&amp;nbsp;&lt;/span&gt;&lt;/font&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-174">
+          <mxGeometry width="148" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-176" value="２台のEC2でネットワーク構成を利用するために、仮想ネットワークを提供する。VPN接続のためにも利用する。" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;align=left;" vertex="1" parent="cCAjc8YfBACK6hqS6SB_-174">
+          <mxGeometry x="148" width="672" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-180" value="on-premises" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=0;fontStyle=1;fontSize=29;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="-1550" y="870" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cCAjc8YfBACK6hqS6SB_-181" value="cloud" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=0;fontStyle=1;fontSize=29;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="-1550" y="810" width="190" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
